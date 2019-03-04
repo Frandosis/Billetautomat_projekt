@@ -1,4 +1,4 @@
-package Billetautomat;
+package Billetautomat; //test
 public class BenytBilletautomat
 {
 	public static void main(String[] arg)
