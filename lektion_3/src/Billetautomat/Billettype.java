@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Billetautomat;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Nikolaj Landberg
+ */
+public class Billettype {
+    Billetautomat automat = new Billetautomat(24);
+      Scanner s = new Scanner(System.in);
+    private int voksenpris;
+    private int boernepris;
+    private int cykelpris;
+    
+    public Billettype(){
+        System.out.println("Ingen priser angivet benytter standard priser:");
+        voksenpris = 24;
+        boernepris = 12;
+        cykelpris = 30;
+    }
+    
+    public Billettype(int vpris, int bpris, int cpris){
+    
+    voksenpris = vpris;
+    boernepris = bpris;
+    cykelpris = cpris;
+    }
+    
+    public void setPrice( String montoerkode){
+        if (montoerkode.equals(automat.getPassword())){
+        boolean isDone = false;
+        int choice = -1;
+        
+        while (isDone != true){
+            System.out.println("Tryk 1 for at saette voksen billet pris\nTryk 2 for at sætte børne billet pris\ntryk 3 for at sættte cykel billetpris\ntryk 0 for at afslutte.");
+            choice = s.nextInt();
+            switch (choice){
+                case 1:
+                    System.out.println("Saet voksen billetpris:");
+                    voksenpris = s.nextInt();
+                    break;
+                case 2:
+                    System.out.println("Saet boerne billetpris:");
+                    boernepris = s.nextInt();
+                    break;
+                case 3:
+                    System.out.println("Saet cykel billetpris:");
+                    cykelpris = s.nextInt();
+                    break;
+                case 0:
+                    isDone = true;
+                    break;
+            }
+        }
+        
+        } else System.err.println("Kunne ikke saette pris - forkert kode");
+    }
+    public void udskrivVoksenBillet(){
+        System.out.println("##########B##T##########");
+        System.out.println("# Borgen Trafikselskab #");
+	System.out.println("#                      #");
+	System.out.println("#    Voksen Billet     #");
+	System.out.println("#        " + voksenpris + " kr.        #");
+	System.out.println("#                      #");
+	System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
+	System.out.println("##########B##T##########");
+	System.out.println();
+    }
+    
+    public void udskrivBoerneBillet(){
+        System.out.println("##########B##T##########");
+        System.out.println("# Borgen Trafikselskab #");
+	System.out.println("#                      #");
+	System.out.println("#    Boerne Billet     #");
+	System.out.println("#        " + boernepris + " kr.        #");
+	System.out.println("#                      #");
+	System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
+	System.out.println("##########B##T##########");
+	System.out.println();
+    }
+    
+    public void udskrivCykelBillet(){
+        System.out.println("##########B##T##########");
+        System.out.println("# Borgen Trafikselskab #");
+	System.out.println("#                      #");
+	System.out.println("#    Voksen Billet     #");
+	System.out.println("#        " + cykelpris + " kr.        #");
+	System.out.println("#                      #");
+	System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
+	System.out.println("##########B##T##########");
+	System.out.println();
+    }
+}
