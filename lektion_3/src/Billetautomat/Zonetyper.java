@@ -4,14 +4,19 @@
  * and open the template in the editor.
  */
 package Billetautomat;
+
 import java.util.Scanner;
+
 /**
  *
  * @author Nikolaj Landberg
  */
 public class Zonetyper {
+
+    Billetautomat automat = new Billetautomat();
     Scanner key = new Scanner(System.in);
-    
+
+    private int factor = 5;
     private int zone2;
     private int zone3;
     private int zone4;
@@ -23,18 +28,27 @@ public class Zonetyper {
     private int zonealle;
 
     public Zonetyper() {
-        zone2 = 0;
-        zone3 = 5;
-        zone4 = 10;
-        zone5 = 15;
-        zone6 = 20;
-        zone7 = 25;
-        zone8 = 30;
-        zone9 = 35;
-        zonealle = 40;
+        zone2 = factor * 0;
+        zone3 = factor * 1;
+        zone4 = factor * 2;
+        zone5 = factor * 3;
+        zone6 = factor * 4;
+        zone7 = factor * 5;
+        zone8 = factor * 6;
+        zone9 = factor * 7;
+        zonealle = factor * 8;
     }
 
-    public void setZonePrice(){
-        
+    public void setZonePrice(String montoerkode) {
+        if (montoerkode.equals(automat.getPassword())) {
+
+            System.out.println("Indsæt en ny faktor for zonepriserne.");
+            System.out.println("Eks. zone2 = factor * 0 og zone3 = factor * 1");
+            int f = key.nextInt();
+            if (f >= 0) {
+                factor = f;
+            }
+
+        }
     }
 }
