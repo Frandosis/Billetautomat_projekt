@@ -9,7 +9,7 @@ public class Log {
     private String billettype = "";
     private int beløb = 0;
 
-}
+}//test
 
 
 
