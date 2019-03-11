@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class Billetautomat {
 	private ArrayList<String> transaktion = new ArrayList<>();
+        private boolean isAdmin = false;
         Date tid;
         private int pris;    // Prisen for én billet.
 	private int balance = 0; // Hvor mange penge kunden p.t. har puttet i automaten
@@ -30,6 +31,9 @@ public class Billetautomat {
 	/**
 	 * Giver prisen for en billet.
 	 */
+        public boolean isAdmin(){
+            return isAdmin;
+        }
 	public int getBilletpris() {
 		int resultat = pris;
 		return resultat;

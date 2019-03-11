@@ -31,8 +31,8 @@ public class Billettype {
         zonetype = index;
     }
 
-    public void setPrice(String montoerkode) {
-        if (montoerkode.equals(automat.getPassword())) {
+    public void setPrice() {
+        if (automat.isAdmin()) {
             boolean isDone = false;
             int choice = -1;
 

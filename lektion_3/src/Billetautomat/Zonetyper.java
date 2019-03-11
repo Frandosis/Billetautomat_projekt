@@ -44,8 +44,8 @@ public class Zonetyper {
         }
     }
 
-    public void setZonePrice(String montoerkode) {
-        if (montoerkode.equals(automat.getPassword())) {
+    public void setZonePrice() {
+        if (automat.isAdmin()) {
 
             System.out.println("Indsæt en ny faktor for zonepriserne.");
             System.out.println("Eks. zone2 = factor * 0 og zone3 = factor * 1");
