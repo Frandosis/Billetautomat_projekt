@@ -13,13 +13,13 @@ import java.util.Scanner;
  */
 public class Billettype {
     Billetautomat automat = new Billetautomat(24);
+    Zonetyper zone = new Zonetyper();
       Scanner s = new Scanner(System.in);
     private int voksenpris;
     private int boernepris;
     private int cykelpris;
     
     public Billettype(){
-        System.out.println("Ingen priser angivet benytter standard priser:");
         voksenpris = 24;
         boernepris = 12;
         cykelpris = 30;
@@ -66,6 +66,7 @@ public class Billettype {
         System.out.println("# Borgen Trafikselskab #");
 	System.out.println("#                      #");
 	System.out.println("#    Voksen Billet     #");
+        System.out.println("#    antal "+ zone+"     #");
 	System.out.println("#        " + voksenpris + " kr.        #");
 	System.out.println("#                      #");
 	System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
