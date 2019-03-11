@@ -16,4 +16,5 @@ public class BenytBilletautomat
 		System.out.println("Balancen er nu paa " + automat.getBalance() + " kroner");
 	}
         //bæ hoved
+        //For my eyes only:
 }
