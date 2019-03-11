@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Nikolaj Landberg
  */
 public class Billettype {
-    Billetautomat automat = new Billetautomat(24);
+    Billetautomat automat;
     Zonetyper zone = new Zonetyper();
       Scanner s = new Scanner(System.in);
     private int voksenpris;
@@ -25,12 +25,6 @@ public class Billettype {
         cykelpris = 30;
     }
     
-    public Billettype(int vpris, int bpris, int cpris){
-    
-    voksenpris = vpris;
-    boernepris = bpris;
-    cykelpris = cpris;
-    }
     
     public void setPrice( String montoerkode){
         if (montoerkode.equals(automat.getPassword())){
