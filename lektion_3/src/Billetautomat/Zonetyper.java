@@ -1,11 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ I denne underklasse har jeg valgt at dele alle de forskellige zone typer op, og sætte dem ind i et array.
+ Så får de denne opstilling
+Index:      zone:       price:
+    0       zone 2      factor * 0;
+    1       zone 3      factor * 1;
+    2       zone 4      factor * 2;
+    3       zone 5      factor * 3;
+    4       zone 6      factor * 4;
+    5       zone 7      factor * 5;
+    6       zone 8      factor * 6;
+    7       zone 9      factor * 7;
+    8       zonealle    factor * 8;
  */
 package Billetautomat;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,30 +23,16 @@ import java.util.Scanner;
  */
 public class Zonetyper {
 
+    ArrayList<Integer> list = new ArrayList<Integer>();
     Billetautomat automat = new Billetautomat();
     Scanner key = new Scanner(System.in);
 
     private int factor = 5;
-    private int zone2;
-    private int zone3;
-    private int zone4;
-    private int zone5;
-    private int zone6;
-    private int zone7;
-    private int zone8;
-    private int zone9;
-    private int zonealle;
 
     public Zonetyper() {
-        zone2 = factor * 0;
-        zone3 = factor * 1;
-        zone4 = factor * 2;
-        zone5 = factor * 3;
-        zone6 = factor * 4;
-        zone7 = factor * 5;
-        zone8 = factor * 6;
-        zone9 = factor * 7;
-        zonealle = factor * 8;
+        for (int i = 0; i <= 8; i++) {
+            list.add(factor * i);
+        }
     }
 
     public void setZonePrice(String montoerkode) {
@@ -48,7 +44,15 @@ public class Zonetyper {
             if (f >= 0) {
                 factor = f;
             }
-
+            while(list.isEmpty() != true){
+            list.clear();
+            }
+            
+            for (int i = 0; i <= 8; i++) {
+                list.add(factor * i);
+            }
         }
     }
+    
+    
 }
