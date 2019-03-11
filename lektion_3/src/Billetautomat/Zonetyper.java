@@ -23,15 +23,24 @@ import java.util.ArrayList;
  */
 public class Zonetyper {
 
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<Integer> price = new ArrayList<Integer>();
+    ArrayList<String> type = new ArrayList<String>();
     Billetautomat automat = new Billetautomat();
     Scanner key = new Scanner(System.in);
 
     private int factor = 5;
 
     public Zonetyper() {
+        if(price.isEmpty()){
         for (int i = 0; i <= 8; i++) {
-            list.add(factor * i);
+            price.add(factor * i);
+        }
+        }
+        if(type.isEmpty()){
+            for (int j = 2; j <= 9; j++){
+                type.add("zone "+j);
+            }
+            type.add("alle zoner");
         }
     }
 
@@ -44,15 +53,21 @@ public class Zonetyper {
             if (f >= 0) {
                 factor = f;
             }
-            while(list.isEmpty() != true){
-            list.clear();
+            while(price.isEmpty() != true){
+            price.clear();
             }
             
             for (int i = 0; i <= 8; i++) {
-                list.add(factor * i);
+                price.add(factor * i);
             }
         }
     }
+    public String getZoneType(int index){
+        return type.get(index);
+    }
     
-    
+    public int getZonePrice(int index){
+        return price.get(index);
+        
+    }
 }
