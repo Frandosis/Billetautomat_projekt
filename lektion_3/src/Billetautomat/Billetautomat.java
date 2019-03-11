@@ -10,8 +10,8 @@ public class Billetautomat {
 	private ArrayList<String> transaktion = new ArrayList<>();
         Date tid;
         private int pris;    // Prisen for én billet.
-	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
-	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
+	private int balance = 0; // Hvor mange penge kunden p.t. har puttet i automaten
+	private int antalBilletterSolgt = 0; // Antal billetter automaten i alt har solgt
         private String kode = "1234"; //Default montør kode.
         
 
@@ -19,31 +19,13 @@ public class Billetautomat {
 	 * Opret en billetautomat, der sælger billetter til en given billetpris.
 	 * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
 	 */
-	public Billetautomat(int billetpris) {
-		if(billetpris > 0){
-                pris = billetpris;
-                } else {
-                    System.out.println("Forkert parameter, saetter standard indstillinger.");
-                    pris = 24;
-                }
-                
-	}
 
 	/**
 	 * Opret en billetautomat, der sælger billetter til en given billetpris
 	 * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
 	 * @param startbalance mængden af penge automaten allerede indeholder
 	 */
-	public Billetautomat(int billetpris, int startbalance) {
-		if(billetpris > 0 && startbalance >= 0){
-                pris = billetpris;
-		balance = startbalance;
-                } else {
-                    System.out.println("Forkerte parametre, saetter standard indstillinger.");
-                    pris = 24;
-                    balance = 0;
-                }
-	}
+	/* TO DO lav en funktion for at sætte startbalancen
 
 	/**
 	 * Giver prisen for en billet.
