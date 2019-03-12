@@ -24,19 +24,22 @@ public class Billetvaelger {
     
     Scanner s = new Scanner(System.in);
     Billettype type = new Billettype();
-    ArrayList<Billet> Billetliste = new ArrayList<Billet>();
+    ArrayList<Billet> liste = new ArrayList<Billet>();
     
-    private int antalvoksen;
-    private int antalboerne;
-    private int antalcykel;
+    private int antalbillet;
     
     public Billetvaelger(){
-        antalvoksen = 0;
-        antalboerne = 0;
-        antalcykel = 0;
+        antalbillet = 0;
     }
-    public void addBillet(){
+    public void addBillet(int typeindex, int zoneindex){
+       
+       String typename = type.getBilletType(typeindex);
+       String zonename = type.getZoneType(zoneindex);
+       int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
         
+        Billet x = new Billet(typename, zonename, price);
+       liste.add(x);
+       
     }
     public void billetVaelgerUI(){
         

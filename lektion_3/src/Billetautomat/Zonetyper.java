@@ -17,10 +17,7 @@ package Billetautomat;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-/**
- *
- * @author Nikolaj Landberg
- */
+
 public class Zonetyper {
 
     ArrayList<Integer> price = new ArrayList<Integer>();
