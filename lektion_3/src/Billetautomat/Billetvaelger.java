@@ -39,7 +39,11 @@ public class Billetvaelger {
         
         Billet x = new Billet(typename, zonename, price);
        liste.add(x);
+       antalbillet++;
        
+    }
+    public ArrayList<Billet> getTicketList(){
+        return liste;
     }
     public void billetVaelgerUI(){
         
