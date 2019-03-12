@@ -6,20 +6,25 @@
 package Billetautomat;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
-/**
- *
- * @author Nikolaj Landberg
- */
 public class Billetvaelger {
-    class billet{
-     int type;
-     int zone;
+    class Billet{
+     String typename;
+     String zonename;
+     int price;
+     
+     public Billet(String type, String zone, int sumprice){
+         this.typename = type;
+         this.zonename = zone;
+         this.price = sumprice;
+     }
      
     }
     
     Scanner s = new Scanner(System.in);
     Billettype type = new Billettype();
+    ArrayList<Billet> Billetliste = new ArrayList<Billet>();
     
     private int antalvoksen;
     private int antalboerne;
@@ -30,8 +35,11 @@ public class Billetvaelger {
         antalboerne = 0;
         antalcykel = 0;
     }
-    
-    public void billetVaelgerMenu(){
+    public void addBillet(){
+        
+    }
+    public void billetVaelgerUI(){
+        
         
     }
     

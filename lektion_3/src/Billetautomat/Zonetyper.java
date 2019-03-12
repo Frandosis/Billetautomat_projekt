@@ -38,7 +38,7 @@ public class Zonetyper {
         }
         if(type.isEmpty()){
             for (int j = 2; j <= 9; j++){
-                type.add("zone "+j);
+                type.add(j + " zoner");
             }
             type.add("alle zoner");
         }

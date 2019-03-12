@@ -1,12 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    List structure:
+Index:  type:   price:
+    0   Voksen  Voksen
+    1   Boerne  Boerne
+    2   Cykel   Cykel
  */
 package Billetautomat;
 
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  *
  * @author Nikolaj Landberg
@@ -14,8 +16,11 @@ import java.util.Scanner;
 public class Billettype {
 
     Billetautomat automat;
+    ArrayList<String> type = new ArrayList<String>();
+    ArrayList<Integer> price = new ArrayList<Integer>();
     Zonetyper zone = new Zonetyper();
     Scanner s = new Scanner(System.in);
+    
     private int voksenpris;
     private int boernepris;
     private int cykelpris;
@@ -25,6 +30,32 @@ public class Billettype {
         voksenpris = 24;
         boernepris = 12;
         cykelpris = 30;
+        if(price.isEmpty()){
+            price.add(voksenpris);
+            price.add(boernepris);
+            price.add(cykelpris);
+        }
+        if (type.isEmpty()){
+            type.add("Voksen Billet");
+            type.add("Boerne Billet");
+            type.add("Cykel Billet");
+        }
+    }
+
+    public String getBilletType(int index){
+        return type.get(index);
+    }
+    public int getBilletPrice(int index){
+        return price.get(index);
+    }
+
+    public String getZoneType(int index) {
+        return zone.getZoneType(index);
+
+    }
+
+    public int getZonePrice(int index) {
+        return zone.getZonePrice(index);
     }
 
     public void setZoneType(int index) {
@@ -43,14 +74,20 @@ public class Billettype {
                     case 1:
                         System.out.println("Saet voksen billetpris:");
                         voksenpris = s.nextInt();
+                        price.remove(0);
+                        price.add(0, voksenpris);
                         break;
                     case 2:
                         System.out.println("Saet boerne billetpris:");
                         boernepris = s.nextInt();
+                        price.remove(1);
+                        price.add(1, boernepris);
                         break;
                     case 3:
                         System.out.println("Saet cykel billetpris:");
                         cykelpris = s.nextInt();
+                        price.remove(2);
+                        price.add(2, cykelpris);
                         break;
                     case 0:
                         isDone = true;
@@ -59,7 +96,7 @@ public class Billettype {
             }
 
         } else {
-            System.err.println("Kunne ikke saette pris - forkert kode");
+            System.err.println("Kunne ikke saette pris - Kræver administrator tilladelse");
         }
     }
 
