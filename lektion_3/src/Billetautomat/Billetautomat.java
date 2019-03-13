@@ -55,8 +55,8 @@ public class Billetautomat {
         }
 
         System.out.println("Der blev indsat " + beloeb);
-        Log l = new Log("Der blev indsat" + beloeb + " kroner", beloeb, 1);
-        Hlog.add(l);
+        Log L = new Log("Der blev indsat" + beloeb + " kroner", beloeb, 1);
+        Hlog.add(L);
 
         //tid = new Date();
         //transaktion.add(tid + " der blev indsat " + beloeb + " kroner");
@@ -198,9 +198,15 @@ public class Billetautomat {
     /* printer transaktionen */
     public void printTransaktion(String montoerkode) {
         if (montoerkode.equals(kode)) {
-            for (String element : transaktion) {
-                System.out.println(element);
+            //for (String element : transaktion) {
+//                System.out.println(element);
+//            }
+            for (Log L : Hlog) {
+                if (L.ID == 1) {
+                    System.out.println(L.toString());
+                }
             }
+
         } else {
             System.err.println("Kunne ikke udskrive transtaktionerne - forkert kode");
         }
