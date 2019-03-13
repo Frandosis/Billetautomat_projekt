@@ -1,24 +1,35 @@
-
 package Billetautomat;
 
 import java.util.Date;
 
-
 public class Log {
 
-    public Log(String handling, String billettype, int beløb) {
-        this.handling = handling;
-        this.billettype = billettype;
-        this.beløb = beløb;
-        
-    }
-    
     private Date tidspunkt = new Date();
     private String handling = "";
     private String billettype = "";
     private int beløb = 0;
+    private int ID = 0;
 
-}//test
+    Log(String handling, String billettype, int beløb, int ID) {
+        this.handling = handling;
+        this.billettype = billettype;
+        this.beløb = beløb;
+        this.ID = ID;
 
+    }
 
+    @Override
+    public String toString() {
+        if (ID == 1) {
+            return "hej";
+        }
+        return "Log{" + "tidspunkt=" + tidspunkt + ", handling=" + handling + ", billettype=" + billettype + ", bel\u00f8b=" + beløb + ", ID=" + ID + '}';
+    }
 
+    Log(String handling, int beløb, int ID) {
+        this.handling = handling;
+        this.beløb = beløb;
+        this.ID = ID;
+    }
+
+}
