@@ -113,7 +113,7 @@ public class Billettype {
         System.out.println();
     }
 
-    public void udskrivBoerneBillet() {
+    public void udskrivBoerneBillet(int typeindex, int zoneindex) {
         System.out.println("##########B##T##########");
         System.out.println("# Borgen Trafikselskab #");
         System.out.println("#                      #");
@@ -126,7 +126,7 @@ public class Billettype {
         System.out.println();
     }
 
-    public void udskrivCykelBillet() {
+    public void udskrivCykelBillet(int typeindex, int zoneindex) {
         System.out.println("##########B##T##########");
         System.out.println("# Borgen Trafikselskab #");
         System.out.println("#                      #");
