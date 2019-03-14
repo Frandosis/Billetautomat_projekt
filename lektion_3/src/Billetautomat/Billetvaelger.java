@@ -23,19 +23,35 @@ public class Billetvaelger {
         }
         
         public String getTypename(){
-            return this.typename;
+            return typename;
         }
         
         public String getZonename(){
-            return this.zonename;
+            return zonename;
         }
         
         public int getPrice(){
-            return this.price;
+            return price;
         }
         public Comparator <Billet> BilTypeComparator = new Comparator<Billet>(){
-            
+            public int compare(Billet b1, Billet b2){
+                String BilletType1 = b1.getTypename().toUpperCase();
+                String BilletType2 = b2.getTypename().toUpperCase();
+                
+                // Ascending order.
+                return BilletType1.compareTo(BilletType2);
+            }
+        };
+        public Comparator <Billet> BilZoneComparator = new Comparator<Billet>(){
+            public int compare(Billet b1, Billet b2){
+                String BilletZone1 = b1.getZonename ().toUpperCase();
+                String BilletZone2 = b2.getZonename().toUpperCase();
+                
+                return BilletZone1.compareTo(BilletZone2);
+                
+            }
         }
+        
     }
 
     Scanner s = new Scanner(System.in);
