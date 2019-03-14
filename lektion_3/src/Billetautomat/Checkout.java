@@ -42,17 +42,17 @@ public class Checkout {
 
                 Billetvaelger.Billet x = liste.get(i);
 
-                if (x.typename == "Voksen Billet") {
+                if (x.typename.equals("Voksen Billet")) {
                     
                     Billettype.udskrivVoksenBillet;
                 }
-                if (x.typename == "Boerne Billet") {
+                if (x.typename.equals("Boerne Billet")) {
                     
                     Billettype.udskrivBoerneBillet;
                 }
                 
 
-                if (x.typename == "Cykel Billet") {
+                if (x.typename.equals("Cykel Billet")) {
                     
                     Billettype.udskrivCykelBillet;
                 }
