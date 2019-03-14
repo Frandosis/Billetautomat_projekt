@@ -8,57 +8,30 @@ package Billetautomat;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Collections;
 public class Billetvaelger {
 
-    class Billet {
 
-        String typename;
-        String zonename;
-        int price;
-
-        public Billet(String type, String zone, int sumprice) {
-            this.typename = type;
-            this.zonename = zone;
-            this.price = sumprice;
-        }
-        
-        public String getTypename(){
-            return typename;
-        }
-        
-        public String getZonename(){
-            return zonename;
-        }
-        
-        public int getPrice(){
-            return price;
-        }
-        public Comparator <Billet> BilTypeComparator = new Comparator<Billet>(){
-            public int compare(Billet b1, Billet b2){
-                String BilletType1 = b1.getTypename().toUpperCase();
-                String BilletType2 = b2.getTypename().toUpperCase();
-                
-                // Ascending order.
-                return BilletType1.compareTo(BilletType2);
-            }
-        };
-        public Comparator <Billet> BilZoneComparator = new Comparator<Billet>(){
-            public int compare(Billet b1, Billet b2){
-                String BilletZone1 = b1.getZonename ().toUpperCase();
-                String BilletZone2 = b2.getZonename().toUpperCase();
-                
-                return BilletZone1.compareTo(BilletZone2);
-                
-            }
-        }
-        
-    }
-
+      
+    
     Scanner s = new Scanner(System.in);
     Billettype type = new Billettype();
     ArrayList<Billet> liste = new ArrayList<Billet>();
 
     private int antalbillet;
+    
+    public void sortBilletType(ArrayList<Billet> l){
+        Collections.sort(l, Billet.BilTypeComparator);
+        
+    }
+    
+    public void sortBilletZone(ArrayList<Billet> l){
+        Collections.sort(l, Billet.BilZoneComparator);
+    }
+    
+    public void sortBilletPrice(ArrayList<Billet> l){
+        Collections.sort(l, Billet.BilPriceComparator);
+    }
     
     public int getAntalbillet(){
         return antalbillet;
