@@ -6,15 +6,15 @@
 import java.util.Scanner;
 package Billetautomat;
 
-/**
- *
- * @author Nikolaj Landberg
- */
+
 public class Checkout {
     boolean betalt=false; 
     
     public boolean betalbillet(sumprice,betalt);
     
+    if(betalt==true){
+    
+}
     
 }
 
