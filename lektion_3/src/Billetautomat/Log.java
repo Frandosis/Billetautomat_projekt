@@ -7,11 +7,13 @@ public class Log {
     private Date tidspunkt = new Date();
     private String handling = "";
     private String billettype = "";
+    private String zoner = "";
     private int beløb = 0;
     private int ID = 0;
 
-    Log(String handling, String billettype, int beløb, int ID) {
+    Log(String handling, String billettype, String zoner, int beløb, int ID) {
         this.handling = handling;
+        this.zoner = zoner;
         this.billettype = billettype;
         this.beløb = beløb;
         this.ID = ID;
