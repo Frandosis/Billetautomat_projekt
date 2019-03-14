@@ -238,12 +238,60 @@ public class Billetautomat {
 
                             break;
 
-                        case 3:
+                        case "3":// billettype spe
+                            System.out.println("Skriv min.");
+                            String bilS = sc.next();
+                            for (Log L : Hlog) {
+                                if (L.ID == 1 && L.billettype == bilS) {
+                                    System.out.println(L.toString());
+                                }
+                            }
+
                             break;
                     }
-            }else {
+                case "3": // admin stuff
+                    String adminstuff = sc.next();
+                    switch (adminstuff) {
+
+                        case "1":// hele admin loggen
+                            System.out.println("Hele admin log:");
+                            for (Log L : Hlog) {
+                                if (L.ID != 1) {
+                                    System.out.println(L.toString());
+                                }
+                            }
+                            break;
+                        case "2":// admin valg
+                            System.out.println("Vælg admin handlings log:");
+                            System.out.println("1- ? 2- ? 3-?");
+                            String adminh = sc.next();
+                            if (adminh == "1") {
+                                for (Log L : Hlog) {
+                                    if (L.ID != 2) {
+                                        System.out.println(L.toString());
+                                    }
+                                }
+                            } else if (adminh == "2") {
+                                for (Log L : Hlog) {
+                                    if (L.ID != 3) {
+                                        System.out.println(L.toString());
+                                    }
+                                }
+                            } else if (adminh == "3") {
+                                for (Log L : Hlog) {
+                                    if (L.ID != 4) {
+                                        System.out.println(L.toString());
+                                    }
+                                }
+                            } else {
+                                System.out.println("dafug det ikke et nummer mellem 1-3");
+                            }
+
+                    }
+            }
+        } else {
             System.err.println("Kunne ikke udskrive transtaktionerne - forkert kode");
         }
 
-        }
     }
+}
