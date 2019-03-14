@@ -6,7 +6,8 @@
 
 package Billetautomat;
 import java.util.Scanner;
-
+import java.util.ArrayList;
+        
 public class Checkout {
     boolean betalt=false; 
     
@@ -33,7 +34,32 @@ public class Checkout {
     return betalt;
 }
     
-    
+    public void udskrivBilletter(ArrayList liste,int antalbillet) {
+      
+        
+
+            for (int i = 0; i < antalbillet; i++) {
+
+                Billetvaelger.Billet x = liste.get(i);
+
+                if (x.typename == "Voksen Billet") {
+                    
+                    Billettype.udskrivVoksenBillet;
+                }
+                if (x.typename == "Boerne Billet") {
+                    
+                    Billettype.udskrivBoerneBillet;
+                }
+                
+
+                if (x.typename == "Cykel Billet") {
+                    
+                    Billettype.udskrivCykelBillet;
+                }
+            }
+        
+
+    }
     
 }
 
