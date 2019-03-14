@@ -1,8 +1,6 @@
 package Billetautomat;
 
-/**
- * Model af en simpel billetautomat til enkeltbilletter med en fast pris.
- */
+//  Model af en simpel billetautomat til enkeltbilletter med en fast pris.
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
@@ -201,12 +199,35 @@ public class Billetautomat {
             //for (String element : transaktion) {
 //                System.out.println(element);
 //            }
-            for (Log L : Hlog) {
-                if (L.ID == 1) {
-                    System.out.println(L.toString());
-                }
-            }
 
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Skriv din nye kode:");
+            System.out.println("Skriv din nye kode:");
+            String valg = sc.next();
+            switch (valg) {
+                case "1":// print hele log
+                    for (Log L : Hlog) {
+                        System.out.println(L.toString());
+                    }
+                    break;
+                case "2":// print kun køb
+                    int valgkøb = 0;
+
+                    switch (valgkøb) {
+                        case 1:// hele loggen
+                            for (Log L : Hlog) {
+                                if (L.ID == 1) {
+                                    System.out.println(L.toString());
+                                }
+                            }
+
+                    }
+
+                    break;
+
+                case 3:
+                    break;
+            }
         } else {
             System.err.println("Kunne ikke udskrive transtaktionerne - forkert kode");
         }
