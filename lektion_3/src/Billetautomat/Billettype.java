@@ -1,9 +1,9 @@
 /*
     List structure:
-Index:  type:   price:
-    0   Voksen  Voksen
-    1   Boerne  Boerne
-    2   Cykel   Cykel
+Index:  type:           price:
+    0   Voksen Billet   Voksen
+    1   Boerne Billet   Boerne
+    2   Cykel Billet    Cykel
  */
 package Billetautomat;
 
