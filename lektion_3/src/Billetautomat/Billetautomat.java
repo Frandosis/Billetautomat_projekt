@@ -201,8 +201,8 @@ public class Billetautomat {
 //            }
 
             Scanner sc = new Scanner(System.in);
-            System.out.println("Skriv din nye kode:");
-            System.out.println("Skriv din nye kode:");
+            System.out.println("eay bby want sum fuk?");
+            System.out.println("");
             String valg = sc.next();
             switch (valg) {
                 case "1":// print hele log
@@ -210,27 +210,40 @@ public class Billetautomat {
                         System.out.println(L.toString());
                     }
                     break;
-                case "2":// print kun køb
-                    int valgkøb = 0;
+                case "2"://  køb log
 
+                    String valgkøb = sc.next();
                     switch (valgkøb) {
-                        case 1:// hele loggen
+
+                        case "1":// hele køb loggen
+                            System.out.println("Hele købs log:");
                             for (Log L : Hlog) {
                                 if (L.ID == 1) {
                                     System.out.println(L.toString());
                                 }
                             }
+                            break;
+                        case "2":// beløb spe
+                            System.out.println("Skriv min.");
+                            String minS = sc.next();
+                            int min = Integer.parseInt(minS);
+                            System.out.println("Skriv max.");
+                            String maxS = sc.next();
+                            int max = Integer.parseInt(maxS);
+                            for (Log L : Hlog) {
+                                if (L.ID == 1 && L.beløb >= min && L.beløb <= max) {
+                                    System.out.println(L.toString());
+                                }
+                            }
 
+                            break;
+
+                        case 3:
+                            break;
                     }
-
-                    break;
-
-                case 3:
-                    break;
-            }
-        } else {
+            }else {
             System.err.println("Kunne ikke udskrive transtaktionerne - forkert kode");
         }
 
+        }
     }
-}
