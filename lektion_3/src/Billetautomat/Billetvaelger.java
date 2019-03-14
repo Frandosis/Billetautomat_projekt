@@ -7,7 +7,7 @@ package Billetautomat;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.Comparator;
 public class Billetvaelger {
 
     class Billet {
@@ -21,7 +21,21 @@ public class Billetvaelger {
             this.zonename = zone;
             this.price = sumprice;
         }
-
+        
+        public String getTypename(){
+            return this.typename;
+        }
+        
+        public String getZonename(){
+            return this.zonename;
+        }
+        
+        public int getPrice(){
+            return this.price;
+        }
+        public Comparator <Billet> BilTypeComparator = new Comparator<Billet>(){
+            
+        }
     }
 
     Scanner s = new Scanner(System.in);
@@ -29,10 +43,16 @@ public class Billetvaelger {
     ArrayList<Billet> liste = new ArrayList<Billet>();
 
     private int antalbillet;
-
+    
+    public int getAntalbillet(){
+        return antalbillet;
+    }
+    
     public Billetvaelger() {
         antalbillet = 0;
     }
+    
+    
 
     public void addBillet(int typeindex, int zoneindex) {
 
@@ -78,11 +98,25 @@ public class Billetvaelger {
         }
     }
 
-    public void billetVaelgerUI() {
+    public void printBilletList() {
+        if (liste.isEmpty()) {
+            System.out.println("Indkøbskurven er tom");
+        } else {
+
+            for (int i = 0; i < antalbillet; i++) {
+
+                Billet x = liste.get(i);
+
+                if (x.typename == "Voksen Billet") {
+                    
+                    
+                }
+            }
+        }
 
     }
-    
-    public void antalBilletter(int antal) {
+
+    public void billetVaelgerUI() {
 
     }
 
