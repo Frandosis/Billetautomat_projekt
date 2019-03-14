@@ -51,25 +51,37 @@ public class Billetvaelger {
     }
 
     public void removeBillet(int typeindex, int zoneindex, int amount) {
+        try {
+            if (liste.isEmpty()) {
+                System.out.println("Indkøbskurven er tom");
+            } else {
 
-        if (amount > 0) {
-            String typename = type.getBilletType(typeindex);
-            String zonename = type.getZoneType(zoneindex);
-            int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
+                if (amount > 0) {
+                    String typename = type.getBilletType(typeindex);
+                    String zonename = type.getZoneType(zoneindex);
+                    int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
 
-            Billet x = new Billet(typename, zonename, price);
-            for (int i = 0; i < amount; i++) {
-                liste.remove(x);
+                    Billet x = new Billet(typename, zonename, price);
+                    int i = 0;
+                    while (liste.contains(x) && i < amount) {
+                        liste.remove(x);
+                        antalbillet--;
 
+                        i++;
+                    }
+
+                }
             }
-        }
 
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
     }
 
     public void billetVaelgerUI() {
 
     }
-
+    
     public void antalBilletter(int antal) {
 
     }
