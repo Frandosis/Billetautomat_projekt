@@ -6,6 +6,7 @@
 package Billetautomat;
 
 import Billetautomat.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,9 +15,10 @@ import Billetautomat.*;
 public class NewClass {
     public static void main(String[] arg){
         Billetvaelger b = new Billetvaelger();
+        Checkout c= new Checkout();
         b.billetVaelgerUI();
+        c.betalbillet();
         
-              
         
     }
 }

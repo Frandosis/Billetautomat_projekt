@@ -14,20 +14,26 @@ public class Checkout {
     Billettype biltype;
     boolean betalt = false;
 
-    public boolean betalbillet(int sumprice, boolean betalt) {
+    public boolean betalbillet() {
         Scanner tastatur = new Scanner(System.in);
         int indsatPenge;
-
+        int sumprice = 100; //placeholder
         while (betalt != true) {
             System.out.println("Du skal betale " + sumprice + " kr.");
-
+            
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
-
+            while(indsatPenge <= 0){
+            System.out.println("Du kan ikke indseate negativ tal");
+            
+            indsatPenge = tastatur.nextInt();
+            tastatur.nextLine();
+            }
+            
             sumprice = sumprice - indsatPenge;
             if (sumprice < 0) {
                 sumprice = -1 * sumprice;
-                System.out.println("Du har betalt for meget så du får nu dine" + sumprice + " kr. tilbage");
+                System.out.println("Du har betalt for meget så du får nu dine " + sumprice + "kr tilbage");
                 sumprice = 0;
             }
             if (sumprice == 0) {
