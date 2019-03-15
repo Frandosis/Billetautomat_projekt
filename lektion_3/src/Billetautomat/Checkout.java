@@ -23,16 +23,24 @@ public class Checkout {
 
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
-
-            sumprice = sumprice - indsatPenge;
-            if (sumprice < 0) {
-                sumprice = -1 * sumprice;
-                System.out.println("Du har betalt for meget så du får nu dine" + sumprice + " kr. tilbage");
-                sumprice = 0;
-            }
-            if (sumprice == 0) {
-                betalt = true;
-            }
+            
+                while(indsatPenge<=0){
+                    System.out.println("Du kan ikke indseatte negative penge! \n skriv et positiv tal.");
+                    indsatPenge = tastatur.nextInt();
+                    tastatur.nextLine();
+                }
+            
+                sumprice = sumprice - indsatPenge;
+            
+                if (sumprice < 0) {
+                    sumprice = -1 * sumprice;
+                    System.out.println("Du har betalt for meget så du får nu dine " + sumprice + "kr tilbage.");
+                    sumprice = 0;
+                }
+                
+                if (sumprice == 0) {
+                    betalt = true;
+                }
         }
         return betalt;
     }
