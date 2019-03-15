@@ -42,23 +42,7 @@ public class Billettype {
             type.add("Cykel Billet");
         }
     }
-    
-    public int sizeOfZoneType(){
-        return zone.sizeOfType();
-    }
-    
-    public int sizeOfZonePrice(){
-        return zone.sizeOfPrice();
-    }
-    
-    public int sizeOfBilletType(){
-        return type.size();
-    }
-    
-    public int sizeOfBilletPrice(){
-        return price.size();
-    }
-    
+
     public String getBilletType(int index){
         return type.get(index);
     }
@@ -70,7 +54,7 @@ public class Billettype {
         return zone.getZoneType(index);
 
     }
-    
+
     public int getZonePrice(int index) {
         return zone.getZonePrice(index);
     }

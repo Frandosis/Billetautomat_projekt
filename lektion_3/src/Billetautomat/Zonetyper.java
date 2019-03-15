@@ -42,15 +42,7 @@ public class Zonetyper {
             type.add("alle zoner");
         }
     }
-    
-    public int sizeOfPrice(){
-        return price.size();
-    }
-    
-    public int sizeOfType(){
-        return type.size();
-    }
-    
+
     public void setZonePrice() {
         if (automat.isAdmin()) {
 
