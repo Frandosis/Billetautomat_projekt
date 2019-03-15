@@ -14,31 +14,31 @@ public class Checkout {
     Billettype biltype;
     boolean betalt = false;
 
-    public boolean betalbillet(int sumprice, boolean betalt) {
+    public boolean betalbillet(int sum) {
         Scanner tastatur = new Scanner(System.in);
         int indsatPenge;
 
         while (betalt != true) {
-            System.out.println("Du skal betale " + sumprice + " kr.");
+            System.out.println("Du skal betale " + sum + " kr.");
 
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
             
                 while(indsatPenge<=0){
-                    System.out.println("Du kan ikke indseatte negative penge! \n skriv et positiv tal.");
+                    System.out.println("Du kan ikke indseatte negative penge! \nskriv et positiv tal.");
                     indsatPenge = tastatur.nextInt();
                     tastatur.nextLine();
                 }
             
-                sumprice = sumprice - indsatPenge;
+                sum = sum - indsatPenge;
             
-                if (sumprice < 0) {
-                    sumprice = -1 * sumprice;
-                    System.out.println("Du har betalt for meget så du får nu dine " + sumprice + "kr tilbage.");
-                    sumprice = 0;
+                if (sum < 0) {
+                    sum = -1 * sum;
+                    System.out.println("Du har betalt for meget så du får nu dine " + sum + "kr tilbage.");
+                    sum = 0;
                 }
                 
-                if (sumprice == 0) {
+                if (sum == 0) {
                     betalt = true;
                 }
         }
