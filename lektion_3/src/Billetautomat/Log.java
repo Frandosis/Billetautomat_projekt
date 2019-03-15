@@ -25,7 +25,7 @@ public class Log {
 
     public String getZoner() {
         return zoner;
-    }
+    }//test^2
 
     public int getBeløb() {
         return beløb;
