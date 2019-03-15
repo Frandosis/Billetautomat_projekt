@@ -63,7 +63,11 @@ public class Billetvaelger {
             if (liste.isEmpty()) {
                 System.out.println("Checkout bag is empty");
             } else {
-
+                if (typeindex < 0 || zoneindex < 0
+                    || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
+                        System.out.println("Billettype eksisterer ikke");
+                        return;
+                    }
                 if (amount > 0) {
                     int deletions = 0;
                     for (int i = 0; i < liste.size(); i++) {
@@ -120,19 +124,68 @@ public class Billetvaelger {
         }
 
     }
-
+    
+    public int keyboardIntepreter(char key, boolean isType){
+        if (isType == true ){
+            if( key == '1'){
+                return 0;
+            }
+            if(key == '2'){
+                return 1;
+            }
+            if(key == '3'){
+                return 2;
+            }
+        } else{
+           if(key == '2'){
+               return 0;
+           }
+           if(key == '3'){
+               return 1;
+           }
+           if(key == '4'){
+               return 2;
+           }
+           if(key == '5'){
+               return 3;
+           }
+           if(key == '6'){
+               return 4;
+           }
+           if(key == '7'){
+               return 5;
+           }
+           if(key == '8'){
+               return 6;
+           }
+           if(key == '9'){
+               return 7;
+           }
+           if(key == 'a' || key == 'A'){
+               return 8;
+           }
+        }
+        return -1;
+    }
+    
+    public void clearList(ArrayList<Billet> l){
+        l.clear();
+    }
+    
     public void billetVaelgerUI() {
         boolean isDone = false;
         int choice = -1;
         while (isDone != true) {
-            System.out.println("Choose a feature\npress 1 for addding tickets\npress 2 for removing tickets\npress 3 for printing list\npress 0 to end.");
+            System.out.println("Choose a feature\npress 1 for addding tickets\npress 2 for removing tickets\npress 3 for printing list\npress 4 to clear checkout list\npress 0 to end.");
             choice = s.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Choose a type of ticket - Voksen - Boerne - Cykel");
-                    int typeindex = s.nextInt();
-                    System.out.println("choose amount of zones - 2 zones up to all zones");
-                    int zoneindex = s.nextInt();
+                    System.out.println("Choose a type of ticket\nVoksen (press 1) - Boerne (press 2) - Cykel (press 3)");
+                    
+                    int typeindex = keyboardIntepreter( s.next().charAt(0),true);
+                    System.out.println("choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
+                    
+                    int zoneindex = keyboardIntepreter( s.next().charAt(0),false);
                     System.out.println("Choose an amount of tickets");
                     int amount = -1;
                     while (amount < 0) {
@@ -147,10 +200,10 @@ public class Billetvaelger {
                     break;
 
                 case 2:
-                    System.out.println("Choose type of ticket to be removed");
-                    typeindex = s.nextInt();
-                    System.out.println("Choose zone type to be removed");
-                    zoneindex = s.nextInt();
+                    System.out.println("Choose a type of ticket\nVoksen (press 1) - Boerne (press 2) - Cykel (press 3)");
+                    typeindex = keyboardIntepreter( s.next().charAt(0),true);
+                    System.out.println("choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
+                    zoneindex = keyboardIntepreter( s.next().charAt(0),false);
                     System.out.println("Choose an amount of tickets to be removed");
                     amount = -1;
                     while (amount < 0) {
@@ -168,7 +221,11 @@ public class Billetvaelger {
                     printBilletList(liste);
 
                     break;
-
+                
+                case 4:
+                    clearList(liste);
+                    break;
+                    
                 case 0:
                     isDone = true;
                     break;
