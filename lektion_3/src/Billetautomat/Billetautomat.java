@@ -218,7 +218,7 @@ public class Billetautomat {
                         case "1":// hele køb loggen
                             System.out.println("Hele købs log:");
                             for (Log L : Hlog) {
-                                if (L.ID == 1) {
+                                if (L.getID() == 1) {
                                     System.out.println(L.toString());
                                 }
                             }
@@ -231,7 +231,7 @@ public class Billetautomat {
                             String maxS = sc.next();
                             int max = Integer.parseInt(maxS);
                             for (Log L : Hlog) {
-                                if (L.ID == 1 && L.beløb >= min && L.beløb <= max) {
+                                if (L.getID() == 1 && L.getBeløb() >= min && L.getBeløb() <= max) {
                                     System.out.println(L.toString());
                                 }
                             }
@@ -242,7 +242,7 @@ public class Billetautomat {
                             System.out.println("Skriv min.");
                             String bilS = sc.next();
                             for (Log L : Hlog) {
-                                if (L.ID == 1 && L.billettype == bilS) {
+                                if (L.getID() == 1 && L.getBillettype() == bilS) {
                                     System.out.println(L.toString());
                                 }
                             }
@@ -256,7 +256,7 @@ public class Billetautomat {
                         case "1":// hele admin loggen
                             System.out.println("Hele admin log:");
                             for (Log L : Hlog) {
-                                if (L.ID != 1) {
+                                if (L.getID() != 1) {
                                     System.out.println(L.toString());
                                 }
                             }
@@ -267,19 +267,19 @@ public class Billetautomat {
                             String adminh = sc.next();
                             if (adminh == "1") {
                                 for (Log L : Hlog) {
-                                    if (L.ID != 2) {
+                                    if (L.getID() != 2) {
                                         System.out.println(L.toString());
                                     }
                                 }
                             } else if (adminh == "2") {
                                 for (Log L : Hlog) {
-                                    if (L.ID != 3) {
+                                    if (L.getID() != 3) {
                                         System.out.println(L.toString());
                                     }
                                 }
                             } else if (adminh == "3") {
                                 for (Log L : Hlog) {
-                                    if (L.ID != 4) {
+                                    if (L.getID() != 4) {
                                         System.out.println(L.toString());
                                     }
                                 }

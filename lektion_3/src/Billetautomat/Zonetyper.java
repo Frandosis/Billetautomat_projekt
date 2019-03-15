@@ -25,9 +25,10 @@ public class Zonetyper {
     Billetautomat automat = new Billetautomat();
     Scanner key = new Scanner(System.in);
 
-    private int factor = 5;
+    private int factor;
 
     public Zonetyper() {
+        factor = 5;
         if(price.isEmpty()){
         for (int i = 0; i <= 8; i++) {
             price.add(factor * i);

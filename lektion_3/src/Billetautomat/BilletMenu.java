@@ -34,7 +34,7 @@ public class BilletMenu
             int valg = -1;
             boolean montoerMode = false;
             
-		Billetautomat automat = new Billetautomat(setPris);
+		Billetautomat automat = new Billetautomat();
 		
             
                 
