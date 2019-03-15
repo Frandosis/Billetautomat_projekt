@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Billetautomat;
+package Test;
+
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Collections;
 
 public class Billetvaelger {

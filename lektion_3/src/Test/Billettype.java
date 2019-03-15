@@ -5,8 +5,9 @@ Index:  type:           price:
     1   Boerne Billet   Boerne
     2   Cykel Billet    Cykel
  */
-package Billetautomat;
+package Test;
 
+import Billetautomat.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
