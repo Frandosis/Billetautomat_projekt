@@ -75,5 +75,9 @@ public class Billet {
                 
             }
         };
+    @Override
+    public String toString() {
+        return "[ typename=" + typename + ", zonename=" + zonename + ", typeindex=" + typeindex + ", zoneindex="+ zoneindex+", price="+ price + "]";
+    }
     }
 
