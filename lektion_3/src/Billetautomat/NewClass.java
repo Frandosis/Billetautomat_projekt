@@ -17,7 +17,7 @@ public class NewClass {
         Billetvaelger b = new Billetvaelger();
         Checkout c = new Checkout();
         b.billetVaelgerUI();
-        
+        c.checkoutUI();
               
         
     }

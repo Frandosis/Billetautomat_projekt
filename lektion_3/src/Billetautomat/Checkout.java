@@ -13,21 +13,26 @@ public class Checkout {
     Billetvaelger bilvalg;
     Billettype biltype;
     boolean betalt = false;
+    Scanner tastatur = new Scanner(System.in);
     
     public int sumList(){
       int sum = 0;
+      
       ArrayList<Billet> list = bilvalg.getTicketList();
+      
       for (int i = 0; i < list.size(); i++){
           Billet b = list.get(i);
           sum += b.getPrice();
+          System.out.println(sum);
       }
       return sum;
     }
     
-    public boolean betalbillet(int sum) {
-        Scanner tastatur = new Scanner(System.in);
+    public void betalbillet() {
+        int sum=1;
         int indsatPenge;
-
+        
+        sumList();
         while (betalt != true) {
             System.out.println("Du skal betale " + sum + " kr.");
 
@@ -52,17 +57,36 @@ public class Checkout {
                     betalt = true;
                 }
         }
-        return betalt;
+        
     }
 
-    public void udskrivBilletter(ArrayList<Billet> liste, int antalbillet) {
-
-        for (int i = 0; i < antalbillet; i++) {
-
-            Billet x = liste.get(i);
+    public void udskrivBilletter() {
+           ArrayList<Billet> billetlist = bilvalg.getTicketList(); 
+           
+        for (int i = 0; i < billetlist.size(); i++) {
+            
+            Billet x = billetlist.get(i);
             biltype.udskrivBillet(x.getTypeindex(), x.getZoneindex());
 
         }
     }
-
+    public void checkoutUI(){
+        boolean done = false;
+        int choice;
+        while(done != true){
+            System.out.println("Choose a feature\npress 1 to pay for tickets\npress 2 to print ticket\npress 0 to end.");
+            choice = tastatur.nextInt();
+            switch (choice) {
+            case 1:
+            betalbillet();
+                break;
+            case 2:
+                udskrivBilletter();
+                break;
+            case 0:
+                done = true;
+                break;
+        }
+    }}
 }
+    
