@@ -9,7 +9,8 @@ import Billetautomat.*;
 
 /**
  *
- * @author Valdemar Landberg
+ * @author Valdemar Landberg1
+ * 
  */
 public class NewClass {
     public static void main(String[] arg){

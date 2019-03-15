@@ -32,7 +32,7 @@ public class Billetvaelger {
     public void addBillet(int typeindex, int zoneindex, int amount) {
         // check if index are valid
         if (typeindex < 0 || zoneindex < 0
-                || typeindex > type.sizeOfBilletType() || zoneindex > type.sizeOfZoneType()) {
+                || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
             System.out.println("Billettype eksisterer ikke");
             return;
         }
@@ -94,6 +94,7 @@ public class Billetvaelger {
         if (l.isEmpty()) {
             System.out.println("Checkout bag is empty");
         } else {
+            
             int sum = 0;
             int amount = 0;
             System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
@@ -103,7 +104,7 @@ public class Billetvaelger {
                 
                 if (billetEquals(prev, cur) != true) {
                     amount++;
-                    System.out.println(prev.getTypename() + "    " + prev.getZonename() + "    " + prev.getPrice() + "    " + amount);
+                    System.out.printf("%13s%15s%11d%22d%n",prev.getTypename(),prev.getZonename(),prev.getPrice(),amount);
                     sum += prev.getPrice()*amount;
                     amount = 0;
                 } else {
@@ -112,7 +113,7 @@ public class Billetvaelger {
                 if (i == l.size() - 1){
                     amount++;
                     sum += cur.getPrice() * amount;
-                    System.out.println(cur.getTypename() + "    " + cur.getZonename() + "    " + cur.getPrice() + "    " + amount);
+                    System.out.printf("%13s%15s%11d%22d%n",prev.getTypename(),prev.getZonename(),prev.getPrice(),amount);
                 }
             }
             System.out.println("\nTotal sum price = " + sum);
