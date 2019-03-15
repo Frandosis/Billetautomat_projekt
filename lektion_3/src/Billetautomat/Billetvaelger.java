@@ -17,35 +17,34 @@ public class Billetvaelger {
     Billettype type = new Billettype();
     ArrayList<Billet> liste = new ArrayList<Billet>();
 
-    private int antalbillet;
 
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
     }
 
-
     public void sortBilletPrice(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilPriceComparator);
     }
 
-    public int getAntalbillet() {
-        return antalbillet;
-    }
 
     public Billetvaelger() {
-        antalbillet = 0;
     }
 
     public void addBillet(int typeindex, int zoneindex) {
-
+        // check if index are valid
+        if(typeindex < 0 || zoneindex < 0 ||
+                typeindex > type.sizeOfBilletType() || zoneindex > type.sizeOfZoneType()){
+            System.out.println("Billettype eksisterer ikke");
+            return;
+        }
+        
         String typename = type.getBilletType(typeindex);
         String zonename = type.getZoneType(zoneindex);
         int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
 
         Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);
         liste.add(x);
-        antalbillet++;
         sortList(liste);
 
     }
@@ -61,19 +60,22 @@ public class Billetvaelger {
             } else {
 
                 if (amount > 0) {
-                    String typename = type.getBilletType(typeindex);
-                    String zonename = type.getZoneType(zoneindex);
-                    int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
-
-                    Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);
-                    int i = 0;
-                    while (liste.contains(x) && i < amount) {
-                        liste.remove(x);
-                        antalbillet--;
-
-                        i++;
+                    int deletions = 0;
+                    System.out.println(liste.size());
+                    for (int i = 0; i < liste.size(); i++) {
+                        Billet bl = liste.get(i);
+                        
+                        if (bl.getTypeindex() == typeindex && bl.getZoneindex() == zoneindex && deletions < amount) {
+                            System.out.println("inside");
+                            liste.remove(i);
+                            i--;
+                            deletions++;
+                        }
+             
                     }
-                }
+                    System.out.println(deletions);
+               }
+                System.out.println("outside");
             }
 
         } catch (Exception u) {
@@ -88,7 +90,7 @@ public class Billetvaelger {
 
             for (Billet bl : l) {
 
-                System.out.println(bl.toString());
+                System.out.println(bl);
 
             }
         }
@@ -135,7 +137,7 @@ public class Billetvaelger {
 
                 case 3:
                     printBilletList(liste);
-                    
+
                     break;
 
                 case 0:
