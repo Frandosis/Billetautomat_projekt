@@ -1,7 +1,6 @@
 package Billetautomat;
 
 import java.util.Date;
-import Billetautomat.*;
 
 public class Log {
 
@@ -11,30 +10,31 @@ public class Log {
     private String zoner = "";
     private int beløb = 0;
     private int ID = 0;
-    
-    public Date getTidspunkt(){
+
+    public Date getTidspunkt() {
         return tidspunkt;
     }
-    
-    public String getHandling(){
+
+    public String getHandling() {
         return handling;
     }
-    
-    public String getBillettype(){
+
+    public String getBillettype() {
         return billettype;
     }
-    
-    public String getZoner(){
+
+    public String getZoner() {
         return zoner;
     }
-    
-    public int getBeløb(){
+
+    public int getBeløb() {
         return beløb;
-    }
-    
-    public int getID(){
+    }//test
+
+    public int getID() {
         return ID;
     }
+
     Log(String handling, String billettype, String zoner, int beløb, int ID) {
         this.handling = handling;
         this.zoner = zoner;
