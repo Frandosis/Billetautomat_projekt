@@ -17,7 +17,6 @@ public class Billetvaelger {
     Billettype type = new Billettype();
     ArrayList<Billet> liste = new ArrayList<Billet>();
 
-
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
@@ -27,24 +26,30 @@ public class Billetvaelger {
         Collections.sort(l, Billet.BilPriceComparator);
     }
 
-
     public Billetvaelger() {
     }
 
-    public void addBillet(int typeindex, int zoneindex) {
+    public void addBillet(int typeindex, int zoneindex, int amount) {
         // check if index are valid
-        if(typeindex < 0 || zoneindex < 0 ||
-                typeindex > type.sizeOfBilletType() || zoneindex > type.sizeOfZoneType()){
+        if (typeindex < 0 || zoneindex < 0
+                || typeindex > type.sizeOfBilletType() || zoneindex > type.sizeOfZoneType()) {
             System.out.println("Billettype eksisterer ikke");
             return;
         }
-        
+        if (amount < 0) {
+            System.out.println("There can't be an negative amount");
+            return;
+        }
         String typename = type.getBilletType(typeindex);
         String zonename = type.getZoneType(zoneindex);
         int price = type.getBilletPrice(typeindex) + type.getZonePrice(zoneindex);
 
-        Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);
-        liste.add(x);
+        
+        for (int i = 0; i < amount; i++) {
+        Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);    
+            liste.add(x);
+        }
+
         sortList(liste);
 
     }
@@ -56,43 +61,61 @@ public class Billetvaelger {
     public void removeBillet(int typeindex, int zoneindex, int amount) {
         try {
             if (liste.isEmpty()) {
-                System.out.println("Indkøbskurven er tom");
+                System.out.println("Checkout bag is empty");
             } else {
 
                 if (amount > 0) {
                     int deletions = 0;
-                    System.out.println(liste.size());
                     for (int i = 0; i < liste.size(); i++) {
                         Billet bl = liste.get(i);
-                        
+
                         if (bl.getTypeindex() == typeindex && bl.getZoneindex() == zoneindex && deletions < amount) {
-                            System.out.println("inside");
                             liste.remove(i);
                             i--;
                             deletions++;
                         }
-             
+
                     }
-                    System.out.println(deletions);
-               }
-                System.out.println("outside");
+                }
             }
 
         } catch (Exception u) {
             u.printStackTrace();
         }
     }
-
+    public boolean billetEquals(Billet b1, Billet b2){
+        if(b1.getTypeindex() == b2.getTypeindex() && b1.getZoneindex() == b2.getZoneindex()){
+            return true;
+        } else {
+            return false;
+        }
+    }
     public void printBilletList(ArrayList<Billet> l) {
         if (l.isEmpty()) {
-            System.out.println("Indkøbskurven er tom");
+            System.out.println("Checkout bag is empty");
         } else {
-
-            for (Billet bl : l) {
-
-                System.out.println(bl);
-
+            int sum = 0;
+            int amount = 0;
+            System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
+            for (int i = 1; i < l.size(); i++) {
+                Billet prev = l.get(i - 1);
+                Billet cur = l.get(i);
+                
+                if (billetEquals(prev, cur) != true) {
+                    amount++;
+                    System.out.println(prev.getTypename() + "    " + prev.getZonename() + "    " + prev.getPrice() + "    " + amount);
+                    sum += prev.getPrice()*amount;
+                    amount = 0;
+                } else {
+                    amount++;
+                }
+                if (i == l.size() - 1){
+                    amount++;
+                    sum += cur.getPrice() * amount;
+                    System.out.println(cur.getTypename() + "    " + cur.getZonename() + "    " + cur.getPrice() + "    " + amount);
+                }
             }
+            System.out.println("\nTotal sum price = " + sum);
         }
 
     }
@@ -118,9 +141,8 @@ public class Billetvaelger {
                         }
                     }
 
-                    for (int i = 0; i < amount; i++) {
-                        addBillet(typeindex, zoneindex);
-                    }
+                    addBillet(typeindex, zoneindex, amount);
+
                     break;
 
                 case 2:
@@ -129,7 +151,13 @@ public class Billetvaelger {
                     System.out.println("Choose zone type to be removed");
                     zoneindex = s.nextInt();
                     System.out.println("Choose an amount of tickets to be removed");
-                    amount = s.nextInt();
+                    amount = -1;
+                    while (amount < 0) {
+                        amount = s.nextInt();
+                        if (amount < 0) {
+                            System.out.println("Amount can't be less than zero");
+                        }
+                    }
 
                     removeBillet(typeindex, zoneindex, amount);
 
