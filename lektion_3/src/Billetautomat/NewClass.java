@@ -9,7 +9,7 @@ import Billetautomat.*;
 
 /**
  *
- * @author Valdemar Landberg1
+ * @author Valdemar Landberg
  * 
  */
 public class NewClass {
