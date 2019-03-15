@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
+import Billetautomat.*;
 
 public class Billetvaelger {
 

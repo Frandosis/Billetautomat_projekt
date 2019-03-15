@@ -24,6 +24,7 @@ Billetautomat.java:
 package Billetautomat;
 
 import java.util.Scanner;
+import Billetautomat.*;
 
 public class BilletMenu
 {

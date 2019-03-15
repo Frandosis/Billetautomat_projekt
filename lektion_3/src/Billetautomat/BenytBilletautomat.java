@@ -1,4 +1,6 @@
 package Billetautomat;
+
+import Billetautomat.*;
 public class BenytBilletautomat
 {
 	public static void main(String[] arg)

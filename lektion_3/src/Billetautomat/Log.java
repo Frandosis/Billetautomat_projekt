@@ -1,6 +1,7 @@
 package Billetautomat;
 
 import java.util.Date;
+import Billetautomat.*;
 
 public class Log {
 

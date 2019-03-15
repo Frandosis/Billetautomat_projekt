@@ -14,6 +14,7 @@ Index:      zone:       price:
  */
 package Billetautomat;
 
+import Billetautomat.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 

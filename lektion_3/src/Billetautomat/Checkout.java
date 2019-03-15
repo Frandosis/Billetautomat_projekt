@@ -7,6 +7,7 @@ package Billetautomat;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import Billetautomat.*;
 
 public class Checkout {
 

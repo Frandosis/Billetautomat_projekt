@@ -4,6 +4,7 @@ package Billetautomat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
+import Billetautomat.*;
 
 public class Billetautomat {
 

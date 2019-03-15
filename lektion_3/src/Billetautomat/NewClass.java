@@ -5,6 +5,8 @@
  */
 package Billetautomat;
 
+import Billetautomat.*;
+
 /**
  *
  * @author Valdemar Landberg
