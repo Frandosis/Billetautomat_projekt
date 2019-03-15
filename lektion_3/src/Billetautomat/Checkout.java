@@ -10,10 +10,20 @@ import java.util.ArrayList;
 import Billetautomat.*;
 
 public class Checkout {
-
+    Billetvaelger bilvalg;
     Billettype biltype;
     boolean betalt = false;
-
+    
+    public int sumList(){
+      int sum = 0;
+      ArrayList<Billet> list = bilvalg.getTicketList();
+      for (int i = 0; i < list.size(); i++){
+          Billet b = list.get(i);
+          sum += b.getPrice();
+      }
+      return sum;
+    }
+    
     public boolean betalbillet(int sum) {
         Scanner tastatur = new Scanner(System.in);
         int indsatPenge;
