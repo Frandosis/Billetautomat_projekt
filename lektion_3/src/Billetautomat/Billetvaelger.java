@@ -19,14 +19,11 @@ public class Billetvaelger {
 
     private int antalbillet;
 
-    public void sortBilletType(ArrayList<Billet> l) {
-        Collections.sort(l, Billet.BilTypeComparator);
+    public void sortList(ArrayList<Billet> l) {
+        Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
     }
 
-    public void sortBilletZone(ArrayList<Billet> l) {
-        Collections.sort(l, Billet.BilZoneComparator);
-    }
 
     public void sortBilletPrice(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilPriceComparator);
@@ -49,7 +46,7 @@ public class Billetvaelger {
         Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);
         liste.add(x);
         antalbillet++;
-        sortBilletType(liste);
+        sortList(liste);
 
     }
 
@@ -91,7 +88,7 @@ public class Billetvaelger {
 
             for (Billet bl : l) {
 
-                System.out.println(bl);
+                System.out.println(bl.toString());
 
             }
         }

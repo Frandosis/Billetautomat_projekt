@@ -5,7 +5,7 @@ public class BenytBilletautomat
 {
 	public static void main(String[] arg)
 	{
-		Billetautomat automat = new Billetautomat(24);
+		Billetautomat automat = new Billetautomat();
 		System.out.println("Installatoeren har installeret en ny billetautomat");
 		System.out.println();
 		System.out.println("En kunde vil koebe en billet");
