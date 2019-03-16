@@ -19,19 +19,36 @@ public class NewClass {
         Checkout c = new Checkout(b);
         boolean run=true; 
         Scanner scan = new Scanner(System.in);
-        
+        boolean admin = false;
+        int password = 1234;
+        int passTry;
         int menuPick;
         while(run != false){
             
-            System.out.println("Press 1: to crate a ticket\nPress 2: to pay and print your ticket");
+            System.out.println("Press 1: to crate a ticket.\nPress 2: to pay and print your ticket.\nPress 3 to enter admin mode.");
             menuPick= scan.nextInt();
             switch(menuPick) {
                 case 1:
-                b.billetVaelgerUI();
-                break; 
+                    b.billetVaelgerUI();
+                    break; 
                 case 2: 
-                c.checkoutUI();
-                break;
+                    c.checkoutUI();
+                    break;
+                case 3:
+                    if(admin == false){
+                    System.out.println("enter the password.");
+                    passTry = scan.nextInt();
+                            if(passTry == password){
+                             admin = true;
+                             System.out.println("you are now logged in!");
+                        }else{
+                            System.out.println("wrong password!");
+                            }
+                    }else{
+                    System.out.println("you are already logged in!");
+                    }
+                    break;
+                   
                 case 0:
                 run = false;
                 break;
