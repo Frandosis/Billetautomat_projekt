@@ -10,6 +10,7 @@ public class Log {
     private String zoner = "";
     private int beløb = 0;
     private int ID = 0;
+    private int antal = 0;
 
     public Date getTidspunkt() {
         return tidspunkt;
