@@ -25,7 +25,6 @@ public class Billettype {
     private int voksenpris;
     private int boernepris;
     private int cykelpris;
-    private int zonetype;
 
     public Billettype() {
         voksenpris = 24;
@@ -75,9 +74,6 @@ public class Billettype {
         return zone.getZonePrice(index);
     }
 
-    public void setZoneType(int index) {
-        zonetype = index;
-    }
 
     public void setPrice() {
         if (automat.isAdmin()) {
@@ -115,33 +111,5 @@ public class Billettype {
         } else {
             System.err.println("Kunne ikke saette pris - Kræver administrator tilladelse");
         }
-    }
-
-
-
-    public void udskrivBoerneBillet(int typeindex, int zoneindex) {
-        System.out.println("##########B##T##########");
-        System.out.println("# Borgen Trafikselskab #");
-        System.out.println("#                      #");
-        System.out.println("#    Boerne Billet     #");
-        System.out.println("#    " + zone.getZoneType(zonetype) + ": " + zone.getZonePrice(zonetype) + "     #");
-        System.out.println("#        " + (boernepris + zone.getZonePrice(zonetype)) + " kr.        #");
-        System.out.println("#                      #");
-        System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
-        System.out.println("##########B##T##########");
-        System.out.println();
-    }
-
-    public void udskrivCykelBillet(int typeindex, int zoneindex) {
-        System.out.println("##########B##T##########");
-        System.out.println("# Borgen Trafikselskab #");
-        System.out.println("#                      #");
-        System.out.println("#     Cykel Billet     #");
-        System.out.println("#    " + zone.getZoneType(zonetype) + ": " + zone.getZonePrice(zonetype) + "     #");
-        System.out.println("#        " + (cykelpris + zone.getZonePrice(zonetype)) + " kr.        #");
-        System.out.println("#                      #");
-        System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
-        System.out.println("##########B##T##########");
-        System.out.println();
     }
 }
