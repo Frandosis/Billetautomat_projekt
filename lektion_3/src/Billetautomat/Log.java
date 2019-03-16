@@ -36,15 +36,6 @@ public class Log {
         return ID;
     }
 
-    Log(String handling, String billettype, String zoner, int beløb, int ID) {
-        this.handling = handling;
-        this.zoner = zoner;
-        this.billettype = billettype;
-        this.beløb = beløb;
-        this.ID = ID;
-
-    }
-
     @Override
     public String toString() {
         if (ID == 1) {
@@ -59,11 +50,10 @@ public class Log {
         this.ID = ID;
     }
 
-    Log(String handling, String billettype, String zoner, int antal, int beløb, int ID) {
+    Log(String handling, String billettype, String zoner, int beløb, int ID) {
         this.handling = handling;
         this.billettype = billettype;
         this.zoner = zoner;
-        this.antal = antal;
         this.beløb = beløb;
         this.ID = ID;
     }
