@@ -22,9 +22,6 @@ public class Billetvaelger {
 
     }
 
-    public void sortBilletPrice(ArrayList<Billet> l) {
-        Collections.sort(l, Billet.BilPriceComparator);
-    }
 
     public Billetvaelger() {
 
