@@ -29,7 +29,7 @@ public class Checkout {
         for (int i = 0; i < list.size(); i++) {
             Billet b = list.get(i);
             sum += b.getPrice();
-            System.out.println(sum);
+            //System.out.println(sum);
         }
         return sum;
        } catch (Exception e){
@@ -43,9 +43,14 @@ public class Checkout {
         int indsatPenge;
 
         sum = sumList();
+        
+        
         while (betalt != true) {
+            
+            if(sum == -1){
+            sum = 0;
+            }else{
             System.out.println("Du skal betale " + sum + " kr.");
-
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
 
@@ -62,10 +67,11 @@ public class Checkout {
                 System.out.println("Du har betalt for meget så du får nu dine " + sum + "kr tilbage.");
                 sum = 0;
             }
-
+            }
             if (sum == 0) {
                 betalt = true;
             }
+            
         }
 
     }
