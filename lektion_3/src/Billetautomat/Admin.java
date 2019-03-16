@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Billetautomat;
-
+import Billetautomat.*;
 
 public class Admin {
    boolean runAd = false;

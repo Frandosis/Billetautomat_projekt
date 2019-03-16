@@ -17,6 +17,7 @@ public class NewClass {
     public static void main(String[] arg){
         Billetvaelger b = new Billetvaelger();
         Checkout c = new Checkout(b);
+        Admin a = new Admin();
         boolean run=true; 
         Scanner scan = new Scanner(System.in);
         boolean admin = false;
@@ -49,7 +50,7 @@ public class NewClass {
                     }
                     break;
                 case 4:
-                    
+                    a.AdminUI();
                     break;
                 case 0:
                 run = false;
