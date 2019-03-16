@@ -33,6 +33,21 @@ public class Billetautomat {
 	/**
 	 * Giver prisen for en billet.
      */
+    public void indkastLog(int beloeb) {
+        Log L = new Log("Der blev indsat" + beloeb + " kroner", beloeb, 1);
+        Hlog.add(L);
+    }
+
+    public void udbetalingLog(int beloeb) {
+        Log L = new Log("Der blev udbetalt" + beloeb + " kroner", beloeb, 3);
+        Hlog.add(L);
+    }
+
+    public void udskrivningLog(String type, String zone, int antal, int beloeb) {
+        Log L = new Log("Der blev udskrevet" + antal + " af typen:" + type + "med " + zone + "antal zoner til en pris af" + beloeb + "kr.", type, zone, antal, beloeb, 3);
+        Hlog.add(L);
+    }
+
     public boolean isAdmin() {
         return isAdmin;
     }
@@ -45,22 +60,18 @@ public class Billetautomat {
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
      */
-    public void indsaetPenge(int beloeb) {
-
-        if (beloeb >= 0) {
-            balance = balance + beloeb;
-        } else {
-            System.err.println("Ingen negative beloeb");
-        }
-
-        System.out.println("Der blev indsat " + beloeb);
-        Log L = new Log("Der blev indsat" + beloeb + " kroner", beloeb, 1);
-        Hlog.add(L);
-
-        //tid = new Date();
-        //transaktion.add(tid + " der blev indsat " + beloeb + " kroner");
-    }
-
+    /**
+     * public void indsaetPenge(int beloeb) {
+     *
+     * if (beloeb >= 0) { balance = balance + beloeb; } else {
+     * System.err.println("Ingen negative beloeb"); }
+     *
+     * System.out.println("Der blev indsat " + beloeb); Log L = new Log("Der
+     * blev indsat" + beloeb + " kroner", beloeb, 1); Hlog.add(L);
+     *
+     * //tid = new Date(); //transaktion.add(tid + " der blev indsat " + beloeb
+     * + " kroner"); }
+     */
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
      */

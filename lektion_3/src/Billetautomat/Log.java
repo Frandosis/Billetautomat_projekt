@@ -10,6 +10,7 @@ public class Log {
     private String zoner = "";
     private int beløb = 0;
     private int ID = 0;
+    private int antal = 0;
 
     public Date getTidspunkt() {
         return tidspunkt;
@@ -54,6 +55,15 @@ public class Log {
 
     Log(String handling, int beløb, int ID) {
         this.handling = handling;
+        this.beløb = beløb;
+        this.ID = ID;
+    }
+
+    Log(String handling, String billettype, String zoner, int antal, int beløb, int ID) {
+        this.handling = handling;
+        this.billettype = billettype;
+        this.zoner = zoner;
+        this.antal = antal;
         this.beløb = beløb;
         this.ID = ID;
     }
