@@ -59,4 +59,13 @@ public class Log {
         this.ID = ID;
     }
 
+    Log(String handling, String billettype, String zoner, int antal, int beløb, int ID) {
+        this.handling = handling;
+        this.billettype = billettype;
+        this.zoner = zoner;
+        this.antal = antal;
+        this.beløb = beløb;
+        this.ID = ID;
+    }
+
 }
