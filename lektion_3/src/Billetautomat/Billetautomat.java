@@ -43,8 +43,8 @@ public class Billetautomat {
         Hlog.add(L);
     }
 
-    public void udskrivningLog(String type, String zone, int antal, int beloeb) {
-        Log L = new Log("Der blev udskrevet" + antal + " af typen:" + type + "med " + zone + "antal zoner til en pris af" + beloeb + "kr.", type, zone, antal, beloeb, 3);
+    public void udskrivningLog(String type, String zone, int beloeb) {
+        Log L = new Log("Der blev udskrevet billet typen:" + type + "med " + zone + "antal zoner til en pris af" + beloeb + "kr.", type, zone, beloeb, 2);
         Hlog.add(L);
     }
 
