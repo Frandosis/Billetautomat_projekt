@@ -16,7 +16,7 @@ public class Billetvaelger {
     Scanner s = new Scanner(System.in);
     Billettype type = new Billettype();
     ArrayList<Billet> liste = new ArrayList<Billet>();
-
+    
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
@@ -27,6 +27,7 @@ public class Billetvaelger {
     }
 
     public Billetvaelger() {
+
     }
 
     public void addBillet(int typeindex, int zoneindex, int amount) {
@@ -62,6 +63,7 @@ public class Billetvaelger {
         try {
             if (liste.isEmpty()) {
                 System.out.println("Checkout bag is empty");
+                return;
             } else {
                 if (typeindex < 0 || zoneindex < 0
                     || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
@@ -99,9 +101,18 @@ public class Billetvaelger {
             System.out.println("Checkout bag is empty");
         } else {
             
+            if(l.size() == 1){
+                int amount = l.size();
+                Billet x = l.get(0);
+                System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
+                System.out.printf("%13s%15s%11d%22d%n",x.getTypename(),x.getZonename(),x.getPrice(),amount);
+                return;
+            }
+            
             int sum = 0;
             int amount = 0;
             System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
+            
             for (int i = 1; i < l.size(); i++) {
                 Billet prev = l.get(i - 1);
                 Billet cur = l.get(i);
@@ -117,7 +128,7 @@ public class Billetvaelger {
                 if (i == l.size() - 1){
                     amount++;
                     sum += cur.getPrice() * amount;
-                    System.out.printf("%13s%15s%11d%22d%n",prev.getTypename(),prev.getZonename(),prev.getPrice(),amount);
+                    System.out.printf("%13s%15s%11d%22d%n",cur.getTypename(),cur.getZonename(),cur.getPrice(),amount);
                 }
             }
             System.out.println("\nTotal sum price = " + sum);
@@ -168,8 +179,8 @@ public class Billetvaelger {
         return -1;
     }
     
-    public void clearList(ArrayList<Billet> l){
-        l.clear();
+    public void clearList(){
+        liste.clear();
     }
     
     public void billetVaelgerUI() {
@@ -223,7 +234,7 @@ public class Billetvaelger {
                     break;
                 
                 case 4:
-                    clearList(liste);
+                    clearList();
                     break;
                     
                 case 0:

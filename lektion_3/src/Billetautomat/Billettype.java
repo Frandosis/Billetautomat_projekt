@@ -117,18 +117,7 @@ public class Billettype {
         }
     }
 
-    public void udskrivBillet(int typeindex, int zoneindex) {
-        System.out.println("##########B##T##########");
-        System.out.println("# Borgen Trafikselskab #");
-        System.out.println("#                      #");
-        System.out.println("#    "+type.get(typeindex)+"     #");
-        System.out.println("#    " + zone.getZoneType(zoneindex) + ": " + zone.getZonePrice(zoneindex) + "     #");
-        System.out.println("#        " + (voksenpris + zone.getZonePrice(zoneindex)) + " kr.        #");
-        System.out.println("#                      #");
-        System.out.println("# Du har " + automat.getBalance() + " kr til gode #");
-        System.out.println("##########B##T##########");
-        System.out.println();
-    }
+
 
     public void udskrivBoerneBillet(int typeindex, int zoneindex) {
         System.out.println("##########B##T##########");

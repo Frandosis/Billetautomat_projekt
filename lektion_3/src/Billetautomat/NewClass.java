@@ -15,7 +15,7 @@ import Billetautomat.*;
 public class NewClass {
     public static void main(String[] arg){
         Billetvaelger b = new Billetvaelger();
-        Checkout c = new Checkout();
+        Checkout c = new Checkout(b);
         b.billetVaelgerUI();
         c.checkoutUI();
               
