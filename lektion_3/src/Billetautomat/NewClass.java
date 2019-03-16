@@ -6,6 +6,7 @@
 package Billetautomat;
 
 import Billetautomat.*;
+import java.util.Scanner;
 
 /**
  *
@@ -16,9 +17,25 @@ public class NewClass {
     public static void main(String[] arg){
         Billetvaelger b = new Billetvaelger();
         Checkout c = new Checkout(b);
-        b.billetVaelgerUI();
-        c.checkoutUI();
-              
+        boolean run=true; 
+        Scanner scan = new Scanner(System.in);
         
+        int menuPick;
+        while(run != false){
+            
+            System.out.println("Press 1: to crate a ticket\nPress 2: to pay and print your ticket");
+            menuPick= scan.nextInt();
+            switch(menuPick) {
+                case 1:
+                b.billetVaelgerUI();
+                break; 
+                case 2: 
+                c.checkoutUI();
+                break;
+                case 0:
+                run = false;
+                break;
+            }
+        }
     }
 }
