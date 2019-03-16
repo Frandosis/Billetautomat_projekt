@@ -15,11 +15,12 @@ import java.util.Scanner;
  */
 public class NewClass {
     public static void main(String[] arg){
-        Billetvaelger b = new Billetvaelger();
-        Checkout c = new Checkout(b);
-        Admin a = new Admin();
-        boolean run=true; 
+        Billetvaelger bv = new Billetvaelger();
+        Checkout c = new Checkout(bv);
+        Admin a = new Admin(bv);
         Scanner scan = new Scanner(System.in);
+        boolean run=true; 
+        
         boolean admin = false;
         int password = 1234;
         int passTry;
@@ -30,7 +31,7 @@ public class NewClass {
             menuPick= scan.nextInt();
             switch(menuPick) {
                 case 1:
-                    b.billetVaelgerUI();
+                    bv.billetVaelgerUI();
                     break; 
                 case 2: 
                     c.checkoutUI();
@@ -48,6 +49,7 @@ public class NewClass {
                     }else{
                     System.out.println("you are already logged in!");
                     }
+                           
                     break;
                 case 4:
                     a.AdminUI();

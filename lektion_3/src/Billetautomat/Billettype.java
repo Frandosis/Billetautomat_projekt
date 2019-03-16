@@ -74,6 +74,9 @@ public class Billettype {
         return zone.getZonePrice(index);
     }
 
+     public void setZonePrice() {
+        zone.setZonePrice();
+    }
 
     public void setPrice() {
         if (automat.isAdmin()) {

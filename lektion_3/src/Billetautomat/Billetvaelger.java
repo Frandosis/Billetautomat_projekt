@@ -56,6 +56,17 @@ public class Billetvaelger {
         return liste;
     }
 
+    public void setPrice(){
+        
+        System.out.println("hej");
+        type.setPrice();
+    }
+    
+    public void setZonePrice(){
+        
+        System.out.println("hej");
+        type.setZonePrice();
+    }
     public void removeBillet(int typeindex, int zoneindex, int amount) {
         try {
             if (liste.isEmpty()) {
