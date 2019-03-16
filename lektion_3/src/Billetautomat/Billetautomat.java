@@ -202,17 +202,19 @@ public class Billetautomat {
 //            }
 
             Scanner sc = new Scanner(System.in);
-            System.out.println("eay bby want sum fuk?");
-            System.out.println("");
+            System.out.println("Transaktion log skriv følgende for:");
+            System.out.println("1. Hele log 2.Købs log 3. Admin log");
             String valg = sc.next();
             switch (valg) {
                 case "1":// print hele log
+                    System.out.println("Hele loggen for automaten");
                     for (Log L : Hlog) {
                         System.out.println(L.toString());
                     }
                     break;
                 case "2"://  køb log
-
+                    System.out.println("Købs log. skriv følgende for:");
+                    System.out.println("1. Hele købs log 2.Købs log udfra beløb 3. Købs log udfra billetype");
                     String valgkøb = sc.next();
                     switch (valgkøb) {
 
@@ -225,12 +227,13 @@ public class Billetautomat {
                             }
                             break;
                         case "2":// beløb spe
-                            System.out.println("Skriv min.");
+                            System.out.println("Skriv min. beløb:");
                             String minS = sc.next();
                             int min = Integer.parseInt(minS);
-                            System.out.println("Skriv max.");
+                            System.out.println("Skriv max. beløb:");
                             String maxS = sc.next();
                             int max = Integer.parseInt(maxS);
+                            System.out.println("Købs log fra" + min + "kr. til" + max + "kr.");
                             for (Log L : Hlog) {
                                 if (L.getID() == 1 && L.getBeløb() >= min && L.getBeløb() <= max) {
                                     System.out.println(L.toString());
@@ -240,7 +243,7 @@ public class Billetautomat {
                             break;
 
                         case "3":// billettype spe
-                            System.out.println("Skriv min.");
+                            System.out.println("Skrive billetype der visses log for:");
                             String bilS = sc.next();
                             for (Log L : Hlog) {
                                 if (L.getID() == 1 && L.getBillettype() == bilS) {
@@ -251,6 +254,8 @@ public class Billetautomat {
                             break;
                     }
                 case "3": // admin stuff
+                    System.out.println("Vælg admin log:");
+                    System.out.println("1. Hele admin log 2. Mulighed for at vælge spec:");
                     String adminstuff = sc.next();
                     switch (adminstuff) {
 
