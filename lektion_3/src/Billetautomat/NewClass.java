@@ -25,7 +25,7 @@ public class NewClass {
         int menuPick;
         while(run != false){
             
-            System.out.println("Press 1: to crate a ticket.\nPress 2: to pay and print your ticket.\nPress 3 to enter admin mode.");
+            System.out.println("Press 1: to crate a ticket.\nPress 2: to pay and print your ticket.\nPress 3 to enter admin mode.\nPress 4 for log.");
             menuPick= scan.nextInt();
             switch(menuPick) {
                 case 1:
@@ -48,7 +48,9 @@ public class NewClass {
                     System.out.println("you are already logged in!");
                     }
                     break;
-                   
+                case 4:
+                    
+                    break;
                 case 0:
                 run = false;
                 break;
