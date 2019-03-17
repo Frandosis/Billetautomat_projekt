@@ -106,48 +106,7 @@ public class Billetautomat {
         return balance;
     }
 
-    /**
-     * Udskriv en billet.
-     */
-    public void udskrivBillet(boolean isMontoer) {
-
-        // Billetautomat mode
-        if (balance >= pris && isMontoer == false) {
-            antalBilletterSolgt = antalBilletterSolgt + 1;
-            balance -= pris;          // Træk prisen fra balancen
-
-            System.out.println("##########B##T##########");
-            System.out.println("# Borgen Trafikselskab #");
-            System.out.println("#                      #");
-            System.out.println("#        Billet        #");
-            System.out.println("#        " + pris + " kr.        #");
-            System.out.println("#                      #");
-            System.out.println("# Du har " + balance + " kr til gode #");
-            System.out.println("##########B##T##########");
-            System.out.println();
-            tid = new Date();
-            transaktion.add(tid + " der blev udskrevet en billet");
-        } else {
-            int mangel = pris - balance;
-            System.out.println("Der er ikke betalt nok der mangler " + mangel + " kr.");
-        }
-
-        //Installatør mode gratis billeter
-        if (isMontoer == true) {
-            System.out.println("##########B##T##########");
-            System.out.println("# Borgen Trafikselskab #");
-            System.out.println("#                      #");
-            System.out.println("#     Test Billet      #");
-            System.out.println("#        " + pris + " kr.        #");
-            System.out.println("#                      #");
-            System.out.println("# Du har " + balance + " kr til gode #");
-            System.out.println("##########B##T##########");
-            System.out.println();
-            tid = new Date();
-            transaktion.add(tid + " der blev udskrevet en billet til en installatoer");
-        }
-
-    }
+    
 
     /* Henter den interne kodeord */
     public String getPassword() {
@@ -161,22 +120,22 @@ public class Billetautomat {
         while (isDone == false) {
 
             if (isAdmin == true) {
-                System.out.println("Skriv din nye kode:");
+                System.out.println("Write a new password:");
                 String kode1 = sc.next();
-                System.out.println("Gentag kode:");
+                System.out.println("Write the new password again:");
                 String kode2 = sc.next();
 
                 if (kode1.equals(kode2)) {
-                    System.out.println("Koden er blevet aendret");
+                    System.out.println("the password has changed");
                     kode = kode1;
                     passwordLog(kode1);
                     isDone = true;
                 } else {
-                    System.out.println("Koderne var ikke ens, proev igen.");
+                    System.out.println("The password was not the same try agian.");
                 }
 
             } else {
-                System.out.println("Kunne ikke aendre koden - ingen Administrator tilladelse");
+                System.out.println("The password could not be changed - No administrator permission");
                 isDone = true;
             }
         }
@@ -187,7 +146,7 @@ public class Billetautomat {
         if (montoerkode.equals(kode)) {
             pris = nyPris;
         } else {
-            System.err.println("Kunne ikke saette pris - forkert kode");
+            System.err.println("Could not change ticket price - Wrong password");
         }
     }
 
@@ -196,7 +155,7 @@ public class Billetautomat {
         if (montoerkode.equals(kode)) {
             return pris * antalBilletterSolgt;
         } else {
-            System.err.println("Kunne ikke hente samlet billetsalg - forkert kode");
+            System.err.println("Could not find total tickets sold - Wrong password");
         }
 
         return -1;
@@ -207,31 +166,14 @@ public class Billetautomat {
         if (montoerkode.equals(kode)) {
             return antalBilletterSolgt;
         } else {
-            System.err.println("Kunne ikke hente antal billetter solgt - forkert kode");
+            System.err.println("Could not find total amount of tickets sold - Wrong password");
         }
 
         return -1;
     }
 
-    /* hæver den resterende balance til brugeren */
-    public void haevBalance() {
-        System.out.println("Haever den resterende balance.");
-        tid = new Date();
-        transaktion.add(tid + " kunden fik " + balance + " kroner tilbage");
-        balance -= balance;
-    }
-
-    /* nulstiller dagens salg*/
-    public void resetDay(String montoerkode) {
-        if (montoerkode.equals(kode)) {
-            haevBalance();
-            System.out.println("Haever nu dagens salg: " + getSamletSalgsbeloeb(kode));
-            antalBilletterSolgt = 0;
-            transaktion.clear();
-        } else {
-            System.err.println("Kunne ikke nulstille - forkert kode");
-        }
-    }
+ 
+   
 
     /* printer transaktionen */
     public void printTransaktion() {

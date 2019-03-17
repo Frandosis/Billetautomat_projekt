@@ -51,13 +51,13 @@ public class Checkout {
             if(sum == -1){
             sum = 0;
             }else{
-                System.out.println("Du skal betale " + sum + " kr.");
+                System.out.println("You need to pay " + sum + " kr.");
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
             automat.indkastLog(indsatPenge);
 
             while (indsatPenge < 0) {
-                System.out.println("Du kan ikke indseatte negative penge! \nskriv et positiv tal.");
+                System.out.println("You can't use negative money! \nType a positive number.");
                 indsatPenge = tastatur.nextInt();
                 tastatur.nextLine();
                 automat.indkastLog(indsatPenge);
