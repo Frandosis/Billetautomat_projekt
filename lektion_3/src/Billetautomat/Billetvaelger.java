@@ -29,7 +29,7 @@ public class Billetvaelger {
         type = new Billettype(automat);
     }
 
-    public void addBillet(int typeindex, int zoneindex, int amount) {
+    public void addBillet(ArrayList<Billet> l,int typeindex, int zoneindex, int amount) {
         // check if index are valid
         if (typeindex < 0 || zoneindex < 0
                 || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
@@ -47,11 +47,10 @@ public class Billetvaelger {
         
         for (int i = 0; i < amount; i++) {
         Billet x = new Billet(typename, zonename, typeindex, zoneindex, price);    
-            liste.add(x);
+            l.add(x);
         }
 
-        sortList(liste);
-
+        sortList(l);
     }
 
     public ArrayList<Billet> getTicketList() {
@@ -104,6 +103,16 @@ public class Billetvaelger {
         } else {
             return false;
         }
+    }
+    public void printPriceList(){
+        ArrayList<Billet> pricelist = new ArrayList<Billet>();
+        
+        for (int i = 0; i < type.sizeOfBilletType(); i++){
+            for(int j = 0; j < type.sizeOfZoneType(); j++){
+                addBillet(pricelist, i, j, 1);
+            }
+        }
+        printBilletList(pricelist);
     }
     public void printBilletList(ArrayList<Billet> l) {
         if (l.isEmpty()) {
@@ -215,7 +224,7 @@ public class Billetvaelger {
                         }
                     }
 
-                    addBillet(typeindex, zoneindex, amount);
+                    addBillet(liste,typeindex, zoneindex, amount);
 
                     break;
 
@@ -244,6 +253,10 @@ public class Billetvaelger {
                 
                 case 4:
                     clearList();
+                    break;
+                
+                case 5:
+                    printPriceList();
                     break;
                     
                 case 0:
