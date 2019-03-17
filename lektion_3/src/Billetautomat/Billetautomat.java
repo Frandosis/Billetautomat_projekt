@@ -148,6 +148,7 @@ public class Billetautomat {
 
                             break;
                     }
+                    break;
                 case "3": // admin stuff
                     System.out.println("admin log:");
                     System.out.println("1. Whole admin log 2. Specific admin Action log:");
@@ -187,8 +188,10 @@ public class Billetautomat {
                             } else {
                                 System.out.println("a number between 1-3");
                             }
+                            break;
 
                     }
+                    break;
             }
         } else {
             System.err.println("could not print transaction - Wrong password");
