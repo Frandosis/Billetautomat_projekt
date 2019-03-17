@@ -11,11 +11,13 @@ import Billetautomat.*;
 
 public class Checkout {
     
+    Billetautomat automat;
     Billetvaelger bilvalg;
     boolean betalt = false;
     Scanner tastatur = new Scanner(System.in);
-    public Checkout(Billetvaelger b){
+    public Checkout(Billetvaelger b, Billetautomat b1){
         bilvalg = b;
+        automat = b1;
     }
     public int sumList() {
        try{
@@ -53,11 +55,14 @@ public class Checkout {
                 System.out.println("Du skal betale " + sum + " kr.");
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
+            automat.indkastLog(indsatPenge);
 
             while (indsatPenge < 0) {
                 System.out.println("Du kan ikke indseatte negative penge! \nskriv et positiv tal.");
                 indsatPenge = tastatur.nextInt();
                 tastatur.nextLine();
+                automat.indkastLog(indsatPenge);
+                
             }
 
             sum = sum - indsatPenge;
@@ -65,6 +70,7 @@ public class Checkout {
             if (sum < 0) {
                 sum = -1 * sum;
                 System.out.println("Du har betalt for meget så du får nu dine " + sum + "kr tilbage.");
+                automat.udbetalingLog(sum);
                 sum = 0;
             }
             }
@@ -84,13 +90,13 @@ public class Checkout {
 
             Billet x = billetlist.get(i);
             udskrivBillet(x);
-
+            automat.udskrivningLog(x.getTypename(), x.getZonename(), x.getPrice());
         }
         bilvalg.clearList();
         betalt = false;
         return;
         } else {
-            System.out.println("You haven't payed, pay up sucker!");
+            System.out.println("You haven't payed enough!");
             betalBillet();
             udskrivBilletter();
             return;
@@ -133,8 +139,8 @@ public class Checkout {
         System.out.println("##########B##T##########");
         System.out.println("# Borgen Trafikselskab #");
         System.out.println("#                      #");
-        System.out.println("#    "+x.getTypename()+"     #");
-        System.out.println("#    " + x.getZonename() +"     #");
+        System.out.printf("#%17s     #\n",x.getTypename());
+        System.out.printf("#%14s        #\n",x.getZonename());
         System.out.println("#        " + x.getPrice() + " kr.        #");
         System.out.println("#                      #");
         //ystem.out.println("# Du har " + automat.getBalance() + " kr til gode #");
