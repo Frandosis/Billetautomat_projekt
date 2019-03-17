@@ -24,7 +24,7 @@ public class Admin {
     public void AdminUI() {
         runAd = false;
         while (runAd != true) {
-            System.out.println("1 to set price\n2 to set zone price\n0 to end Admin");
+            System.out.println("press 1 to set price\npress 2 to set zone price\npress 3 to print transaktion logbook\npress 4 to change password\npress 0 to end Admin");
             choice = adminscan.nextInt();
 
             switch (choice) {
@@ -36,6 +36,8 @@ public class Admin {
                     break;
                 case 3:
                     automat.printTransaktion();
+                case 4:
+                    automat.changePassword();
                 case 0:
                     runAd = true;
                     break;
