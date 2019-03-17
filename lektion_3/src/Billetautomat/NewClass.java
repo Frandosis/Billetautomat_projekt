@@ -18,7 +18,7 @@ public class NewClass {
         Billetautomat auto = new Billetautomat();
         Billetvaelger bv = new Billetvaelger(auto);
         Checkout c = new Checkout(bv, auto);
-        Admin a = new Admin(bv, auto);
+        Admin a = new Admin(bv, auto, c);
         Scanner scan = new Scanner(System.in);
         boolean run=true;
         boolean isPassword = false;

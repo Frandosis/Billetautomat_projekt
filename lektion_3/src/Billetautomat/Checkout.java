@@ -146,13 +146,13 @@ public class Checkout {
         System.out.println("##########B##T##########");
         System.out.println();
     }
-        public void udskrivTestBillet(Billet x) {
+        public void udskrivTestBillet() {
         System.out.println("##########B##T##########");
         System.out.println("# Borgen Trafikselskab #");
         System.out.println("#                      #");
-        System.out.println("#    "+x.getTypename()+"     #");
-        System.out.println("#    " + x.getZonename() +"     #");
-        System.out.println("#        " + x.getPrice() + " kr.        #");
+        System.out.println("#     Test Billet      #");
+        System.out.println("#        0 zoner       #");
+        System.out.println("#        0 kr.         #");
         System.out.println("#                      #");
         //ystem.out.println("# Du har " + automat.getBalance() + " kr til gode #");
         System.out.println("##########B##T##########");

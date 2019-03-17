@@ -14,11 +14,13 @@ public class Admin {
     int choice;
     Billetautomat automat;
     Billetvaelger bilvalg;
+    Checkout check;
     Scanner adminscan = new Scanner(System.in);
 
-    public Admin(Billetvaelger bv, Billetautomat a) {
+    public Admin(Billetvaelger bv, Billetautomat a, Checkout c) {
         bilvalg = bv;
         automat = a;
+        check = c;
     }
 
     public void AdminUI() {
@@ -40,6 +42,9 @@ public class Admin {
                 case 4:
                     automat.changePassword();
                     break;
+                case 5:
+                    printTestBillet();
+                    break;
                 case 0:
                     runAd = true;
                     break;
@@ -57,5 +62,13 @@ public class Admin {
 
         bilvalg.setZonePrice();
 
+    }
+    public void printTestBillet(){
+        System.out.println("Input amount of test tickets to be printed.");
+        int amount = adminscan.nextInt();
+        for(int i = 0; i < amount; i++){
+            check.udskrivTestBillet();
+        }
+        
     }
 }
