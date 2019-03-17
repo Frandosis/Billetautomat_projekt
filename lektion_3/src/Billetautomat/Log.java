@@ -48,6 +48,11 @@ public class Log {
         this.ID = ID;
     }
 
+    Log(String handling, int ID) {
+        this.handling = handling;
+        this.ID = ID;
+    }
+
     Log(String handling, String billettype, String zoner, int beløb, int ID) {
         this.handling = handling;
         this.billettype = billettype;

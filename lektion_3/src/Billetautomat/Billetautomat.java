@@ -16,14 +16,15 @@ public class Billetautomat {
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private String kode; //Default montør kode.
-    public Billetautomat(){
+
+    public Billetautomat() {
         isAdmin = false;
         kode = "1234";
         balance = 0;
         antalBilletterSolgt = 0;
         pris = 0;
     }
-        
+
     /**
      * Opret en billetautomat, der sælger billetter til en given billetpris.
      *
@@ -54,7 +55,8 @@ public class Billetautomat {
         Log L = new Log("Der blev udskrevet billet typen:" + type + "med " + zone + "antal zoner til en pris af" + beloeb + "kr.", type, zone, beloeb, 2);
         Hlog.add(L);
     }
-    public void setAdmin(boolean flag){
+
+    public void setAdmin(boolean flag) {
         isAdmin = flag;
     }
 
@@ -65,6 +67,11 @@ public class Billetautomat {
 
     public void setpriceLog(String type, int beloeb) {
         Log L = new Log("Ny price" + beloeb + " kroner af typen: " + type, beloeb, 5);
+        Hlog.add(L);
+    }
+
+    public void passwordLog(String beloeb) {
+        Log L = new Log("Ny pass:" + beloeb, 6);
         Hlog.add(L);
     }
 
@@ -162,6 +169,7 @@ public class Billetautomat {
                 if (kode1.equals(kode2)) {
                     System.out.println("Koden er blevet aendret");
                     kode = kode1;
+                    passwordLog(kode1);
                     isDone = true;
                 } else {
                     System.out.println("Koderne var ikke ens, proev igen.");
