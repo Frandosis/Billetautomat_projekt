@@ -54,7 +54,7 @@ public class Admin {
     }
 
     public void setPrice() {
-        System.out.println(automat.isAdmin());
+        
         bilvalg.setPrice();
 
     }

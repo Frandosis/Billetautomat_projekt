@@ -91,7 +91,7 @@ public class Billettype {
 
     public void setPrice() {
         boolean admin = automat.isAdmin();
-        System.out.println(automat.isAdmin());
+        
         if (admin == true) {
             boolean isDone = false;
             int choice = -1;
