@@ -10,13 +10,20 @@ public class Billetautomat {
 
     private ArrayList<Log> Hlog = new ArrayList<>();
     private ArrayList<String> transaktion = new ArrayList<>();
-    private boolean isAdmin = false;
+    private boolean isAdmin;
     Date tid;
     private int pris;    // Prisen for én billet.
-    private int balance = 0; // Hvor mange penge kunden p.t. har puttet i automaten
-    private int antalBilletterSolgt = 0; // Antal billetter automaten i alt har solgt
-    private String kode = "1234"; //Default montør kode.
-
+    private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
+    private String kode; //Default montør kode.
+    public Billetautomat(){
+        isAdmin = false;
+        kode = "1234";
+        balance = 0;
+        antalBilletterSolgt = 0;
+        pris = 0;
+    }
+        
     /**
      * Opret en billetautomat, der sælger billetter til en given billetpris.
      *
@@ -46,6 +53,9 @@ public class Billetautomat {
     public void udskrivningLog(String type, String zone, int beloeb) {
         Log L = new Log("Der blev udskrevet billet typen:" + type + "med " + zone + "antal zoner til en pris af" + beloeb + "kr.", type, zone, beloeb, 2);
         Hlog.add(L);
+    }
+    public void setAdmin(boolean flag){
+        isAdmin = flag;
     }
 
     public void zonepriceLog(int beloeb) {
@@ -138,12 +148,12 @@ public class Billetautomat {
     }
 
     /* Ændrer kodeord */
-    public void changePassword(String montoerkode) {
+    public void changePassword() {
         Scanner sc = new Scanner(System.in);
         boolean isDone = false;
         while (isDone == false) {
 
-            if (montoerkode.equals(kode)) {
+            if (isAdmin == true) {
                 System.out.println("Skriv din nye kode:");
                 String kode1 = sc.next();
                 System.out.println("Gentag kode:");
@@ -158,7 +168,7 @@ public class Billetautomat {
                 }
 
             } else {
-                System.out.println("Kunne ikke aendre koden - forkert kode");
+                System.out.println("Kunne ikke aendre koden - ingen Administrator tilladelse");
                 isDone = true;
             }
         }
@@ -216,8 +226,8 @@ public class Billetautomat {
     }
 
     /* printer transaktionen */
-    public void printTransaktion(String montoerkode) {
-        if (montoerkode.equals(kode)) {
+    public void printTransaktion() {
+        if (isAdmin == true) {
             //for (String element : transaktion) {
 //                System.out.println(element);
 //            }
