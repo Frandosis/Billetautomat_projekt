@@ -9,7 +9,6 @@ package Billetautomat;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import Billetautomat.*;
 
 /**
  *
@@ -20,14 +19,16 @@ public class Billettype {
     Billetautomat automat;
     ArrayList<String> type = new ArrayList<String>();
     ArrayList<Integer> price = new ArrayList<Integer>();
-    Zonetyper zone = new Zonetyper();
+    Zonetyper zone;
     Scanner s = new Scanner(System.in);
 
     private int voksenpris;
     private int boernepris;
     private int cykelpris;
 
-    public Billettype() {
+    public Billettype(Billetautomat b) {
+        automat = b;
+        zone = new Zonetyper (automat);
         voksenpris = 24;
         boernepris = 12;
         cykelpris = 30;
@@ -36,10 +37,18 @@ public class Billettype {
             price.add(boernepris);
             price.add(cykelpris);
         }
+
         if (type.isEmpty()) {
-            type.add("Voksen Billet");
-            type.add("Boerne Billet");
-            type.add("Cykel Billet");
+            type.add("Adult Ticket");
+            type.add("Child Ticket");
+            type.add("Cykel Ticket");
+
+            if (type.isEmpty()) {
+                type.add("Voksen Billet");
+                type.add("Boerne Billet");
+                type.add("Cykel Billet");
+
+            }
         }
     }
 
@@ -81,30 +90,32 @@ public class Billettype {
     }
 
     public void setPrice() {
-        if (automat.isAdmin()) {
+        boolean admin = automat.isAdmin();
+        System.out.println(automat.isAdmin());
+        if (admin == true) {
             boolean isDone = false;
             int choice = -1;
 
             while (isDone != true) {
-                System.out.println("Tryk 1 for at saette voksen billet pris\nTryk 2 for at sætte børne billet pris\ntryk 3 for at sættte cykel billetpris\ntryk 0 for at afslutte.");
+                System.out.println("Press 1 to set the adult ticket price\nPress 2 to set the child ticket price\nPress 3 to set the bicycle ticket price\nPress 0 when done.");
                 choice = s.nextInt();
                 switch (choice) {
                     case 1:
-                        System.out.println("Saet voksen billetpris:");
+                        System.out.println("Set adult ticket price:");
                         voksenpris = s.nextInt();
                         automat.setpriceLog("Voksen", voksenpris);
                         price.remove(0);
                         price.add(0, voksenpris);
                         break;
                     case 2:
-                        System.out.println("Saet boerne billetpris:");
+                        System.out.println("Set child ticket price:");
                         boernepris = s.nextInt();
                         automat.setpriceLog("Boerne", boernepris);
                         price.remove(1);
                         price.add(1, boernepris);
                         break;
                     case 3:
-                        System.out.println("Saet cykel billetpris:");
+                        System.out.println("Set bicycle ticket price:");
                         cykelpris = s.nextInt();
                         automat.setpriceLog("cykel", cykelpris);
                         price.remove(2);
@@ -117,7 +128,7 @@ public class Billettype {
             }
 
         } else {
-            System.err.println("Kunne ikke saette pris - Kræver administrator tilladelse");
+            System.err.println("Couldn't set price - missing admin approval");
         }
     }
 }
