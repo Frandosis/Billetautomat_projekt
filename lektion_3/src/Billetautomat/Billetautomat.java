@@ -9,7 +9,6 @@ import Billetautomat.*;
 public class Billetautomat {
 
     private ArrayList<Log> Hlog = new ArrayList<>();
-    private ArrayList<String> transaktion = new ArrayList<>();
     private boolean isAdmin;
     Date tid;
     private int pris;    // Prisen for én billet.
@@ -102,12 +101,6 @@ public class Billetautomat {
     /**
      * Giver balancen (beløbet maskinen har modtaget til den næste billet).
      */
-    public int getBalance() {
-        return balance;
-    }
-
-    
-
     /* Henter den interne kodeord */
     public String getPassword() {
         return kode;
@@ -141,39 +134,6 @@ public class Billetautomat {
         }
     }
 
-    /* Ændrer billetprisen */
-    public void setBilletpris(String montoerkode, int nyPris) {
-        if (montoerkode.equals(kode)) {
-            pris = nyPris;
-        } else {
-            System.err.println("Could not change ticket price - Wrong password");
-        }
-    }
-
-    /* Regner det samlede salgsbeløb */
-    public int getSamletSalgsbeloeb(String montoerkode) {
-        if (montoerkode.equals(kode)) {
-            return pris * antalBilletterSolgt;
-        } else {
-            System.err.println("Could not find total tickets sold - Wrong password");
-        }
-
-        return -1;
-    }
-
-    /* sender antalbilletter solgt */
-    public int getAntalBilletterSolgt(String montoerkode) {
-        if (montoerkode.equals(kode)) {
-            return antalBilletterSolgt;
-        } else {
-            System.err.println("Could not find total amount of tickets sold - Wrong password");
-        }
-
-        return -1;
-    }
-
- 
-   
 
     /* printer transaktionen */
     public void printTransaktion() {
