@@ -7,6 +7,7 @@ package Billetautomat;
 
 import Billetautomat.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Admin {
 
@@ -64,10 +65,9 @@ public class Admin {
 
     }
     public void printTestBillet(){
-        System.out.println("Input amount of test tickets to be printed.");
-        int amount = adminscan.nextInt();
-        for(int i = 0; i < amount; i++){
-            check.udskrivTestBillet();
+        ArrayList<Billet> l = bilvalg.getAllTypeList();
+        for(int i = 0; i < l.size(); i++){
+            check.udskrivTestBillet(l.get(i));
         }
         
     }
