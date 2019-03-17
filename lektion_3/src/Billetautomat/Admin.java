@@ -36,8 +36,10 @@ public class Admin {
                     break;
                 case 3:
                     automat.printTransaktion();
+                    break;
                 case 4:
                     automat.changePassword();
+                    break;
                 case 0:
                     runAd = true;
                     break;
