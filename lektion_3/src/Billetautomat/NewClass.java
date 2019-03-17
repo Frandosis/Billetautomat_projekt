@@ -15,15 +15,12 @@ import java.util.Scanner;
  */
 public class NewClass {
     public static void main(String[] arg){
-        Billetautomat automat = new Billetautomat();
-        Billetvaelger b = new Billetvaelger(automat);
-        Checkout c = new Checkout(b, automat);
-        boolean run=true; 
+        Billetautomat auto = new Billetautomat();
+        Billetvaelger bv = new Billetvaelger(auto);
+        Checkout c = new Checkout(bv, auto);
+        Admin a = new Admin(bv, auto);
         Scanner scan = new Scanner(System.in);
-        boolean run=true; 
-        
-        boolean admin = false;
-        boolean backflag = false;
+        boolean run=true;
         boolean isPassword = false;
         String passTry = "";
         int menuPick;
