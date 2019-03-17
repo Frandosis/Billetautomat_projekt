@@ -205,7 +205,7 @@ public class Billetvaelger {
         boolean isDone = false;
         int choice = -1;
         while (isDone != true) {
-            System.out.println("Choose a feature\npress 1 for addding tickets\npress 2 for removing tickets\npress 3 for printing list\npress 4 to clear checkout list\npress 0 to end.");
+            System.out.println("Choose a feature\npress 1 for addding tickets\npress 2 for removing tickets\npress 3 for printing list\npress 4 to clear checkout list\npress 5 to print a list of prices\npress 0 to end.");
             choice = s.nextInt();
             switch (choice) {
                 case 1:
