@@ -18,39 +18,38 @@ import Billetautomat.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
 public class Zonetyper {
 
     ArrayList<Integer> price = new ArrayList<Integer>();
     ArrayList<String> type = new ArrayList<String>();
-    Billetautomat automat = new Billetautomat();
+    Billetautomat automat;
     Scanner key = new Scanner(System.in);
 
     private int factor;
 
     public Zonetyper() {
         factor = 5;
-        if(price.isEmpty()){
-        for (int i = 0; i <= 8; i++) {
-            price.add(factor * i);
+        if (price.isEmpty()) {
+            for (int i = 0; i <= 8; i++) {
+                price.add(factor * i);
+            }
         }
-        }
-        if(type.isEmpty()){
-            for (int j = 2; j <= 9; j++){
+        if (type.isEmpty()) {
+            for (int j = 2; j <= 9; j++) {
                 type.add(j + " zoner");
             }
             type.add("alle zoner");
         }
     }
-    
-    public int sizeOfPrice(){
+
+    public int sizeOfPrice() {
         return price.size();
     }
-    
-    public int sizeOfType(){
+
+    public int sizeOfType() {
         return type.size();
     }
-    
+
     public void setZonePrice() {
         if (automat.isAdmin()) {
 
@@ -59,22 +58,24 @@ public class Zonetyper {
             int f = key.nextInt();
             if (f >= 0) {
                 factor = f;
+                automat.zonepriceLog(f);
             }
-            while(price.isEmpty() != true){
-            price.clear();
+            while (price.isEmpty() != true) {
+                price.clear();
             }
-            
+
             for (int i = 0; i <= 8; i++) {
                 price.add(factor * i);
             }
         }
     }
-    public String getZoneType(int index){
+
+    public String getZoneType(int index) {
         return type.get(index);
     }
-    
-    public int getZonePrice(int index){
+
+    public int getZonePrice(int index) {
         return price.get(index);
-        
+
     }
 }
