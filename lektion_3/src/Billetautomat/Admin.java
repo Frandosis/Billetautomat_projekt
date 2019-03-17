@@ -7,6 +7,7 @@ package Billetautomat;
 
 import Billetautomat.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Admin {
 
@@ -26,7 +27,7 @@ public class Admin {
     public void AdminUI() {
         runAd = false;
         while (runAd != true) {
-            System.out.println("press 1 to set price\npress 2 to set zone price\npress 3 to print transaktion logbook\npress 4 to change password\npress 0 to end Admin");
+            System.out.println("press 1 to set price\npress 2 to set zone price\npress 3 to print transaktion logbook\npress 4 to change password\npress 5 to print test tickets\npress 0 to end Admin");
             choice = adminscan.nextInt();
 
             switch (choice) {
@@ -64,10 +65,9 @@ public class Admin {
 
     }
     public void printTestBillet(){
-        System.out.println("Input amount of test tickets to be printed.");
-        int amount = adminscan.nextInt();
-        for(int i = 0; i < amount; i++){
-            check.udskrivTestBillet();
+        ArrayList<Billet> l = bilvalg.getAllTypeList();
+        for(int i = 0; i < l.size(); i++){
+            check.udskrivTestBillet(l.get(i));
         }
         
     }

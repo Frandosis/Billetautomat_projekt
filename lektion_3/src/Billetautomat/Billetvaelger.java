@@ -104,16 +104,20 @@ public class Billetvaelger {
             return false;
         }
     }
-    public void printPriceList(){
-        ArrayList<Billet> pricelist = new ArrayList<Billet>();
+    public ArrayList<Billet> getAllTypeList(){
+         ArrayList<Billet> pricelist = new ArrayList<Billet>();
         
         for (int i = 0; i < type.sizeOfBilletType(); i++){
             for(int j = 0; j < type.sizeOfZoneType(); j++){
                 addBillet(pricelist, i, j, 1);
             }
         }
-        printBilletList(pricelist);
+        return pricelist;
     }
+    public void printPriceList(){
+       printBilletList(getAllTypeList());
+    }
+    
     public void printBilletList(ArrayList<Billet> l) {
         if (l.isEmpty()) {
             System.out.println("Checkout bag is empty");
