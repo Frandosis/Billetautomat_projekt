@@ -11,35 +11,13 @@ public class Billetautomat {
     private ArrayList<Log> Hlog = new ArrayList<>();
     private boolean isAdmin;
     Date tid;
-    private int pris;    // Prisen for én billet.
-    private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
-    private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private String kode; //Default montør kode.
 
     public Billetautomat() {
         isAdmin = false;
         kode = "1234";
-        balance = 0;
-        antalBilletterSolgt = 0;
-        pris = 0;
     }
 
-    /**
-     * Opret en billetautomat, der sælger billetter til en given billetpris.
-     *
-     * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
-     */
-    /**
-     * Opret en billetautomat, der sælger billetter til en given billetpris
-     *
-     * @param billetpris skal være større end nul (p.t. bliver det ikke tjekket)
-     * @param startbalance mængden af penge automaten allerede indeholder
-     */
-    /* TO DO lav en funktion for at sætte startbalancen
-
-	/**
-	 * Giver prisen for en billet.
-     */
     public void indkastLog(int beloeb) {
         Log L = new Log("Der blev indsat" + beloeb + " kroner", beloeb, 1);
         Hlog.add(L);
@@ -78,30 +56,6 @@ public class Billetautomat {
         return isAdmin;
     }
 
-    public int getBilletpris() {
-        int resultat = pris;
-        return resultat;
-    }
-
-    /**
-     * Modtag nogle penge (i kroner) fra en kunde.
-     */
-    /**
-     * public void indsaetPenge(int beloeb) {
-     *
-     * if (beloeb >= 0) { balance = balance + beloeb; } else {
-     * System.err.println("Ingen negative beloeb"); }
-     *
-     * System.out.println("Der blev indsat " + beloeb); Log L = new Log("Der
-     * blev indsat" + beloeb + " kroner", beloeb, 1); Hlog.add(L);
-     *
-     * //tid = new Date(); //transaktion.add(tid + " der blev indsat " + beloeb
-     * + " kroner"); }
-     */
-    /**
-     * Giver balancen (beløbet maskinen har modtaget til den næste billet).
-     */
-    /* Henter den interne kodeord */
     public String getPassword() {
         return kode;
     }
