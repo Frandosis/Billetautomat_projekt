@@ -15,19 +15,21 @@ import java.util.Scanner;
  */
 public class NewClass {
     public static void main(String[] arg){
-        Billetvaelger bv = new Billetvaelger();
-        Checkout c = new Checkout(bv);
-        Admin a = new Admin(bv);
+        Billetautomat automat = new Billetautomat();
+        Billetvaelger b = new Billetvaelger(automat);
+        Checkout c = new Checkout(b, automat);
+        boolean run=true; 
         Scanner scan = new Scanner(System.in);
         boolean run=true; 
         
         boolean admin = false;
-        int password = 1234;
-        int passTry;
+        boolean backflag = false;
+        boolean isPassword = false;
+        String passTry = "";
         int menuPick;
         while(run != false){
             
-            System.out.println("Press 1: to crate a ticket.\nPress 2: to pay and print your ticket.\nPress 3 to enter admin mode.\nPress 4 for log.");
+            System.out.println("Press 1: To go too the ticket selecter.\nPress 2: To pay and print your ticket.\nPress 3 to enter admin mode.\nPress 0 to end");
             menuPick= scan.nextInt();
             switch(menuPick) {
                 case 1:
@@ -37,22 +39,26 @@ public class NewClass {
                     c.checkoutUI();
                     break;
                 case 3:
-                    if(admin == false){
-                    System.out.println("enter the password.");
-                    passTry = scan.nextInt();
-                            if(passTry == password){
-                             admin = true;
-                             System.out.println("you are now logged in!");
-                        }else{
-                            System.out.println("wrong password!");
-                            }
-                    }else{
-                    System.out.println("you are already logged in!");
+                        System.out.println("Input password:");
+                        passTry = scan.next();
+                       
+                        if(passTry.equals(auto.getPassword())){
+                            System.out.println("Correct password!");
+                            isPassword = true;
+                            System.out.println(isPassword);
+                        } else{
+                            System.out.println("Wrong password!");
+                        }
+                    if(isPassword == true){
+                        System.out.println("Entering Admin mode:");
+                    isPassword = false;
+                    auto.setAdmin(true);
+                    a.AdminUI();
+                    auto.setAdmin(false);
                     }
-                           
                     break;
                 case 4:
-                    a.AdminUI();
+                   
                     break;
                 case 0:
                 run = false;
