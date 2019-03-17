@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Valdemar Landberg
  * 
  */
-public class NewClass {
+public class BrugerMenu {
     public static void main(String[] arg){
         Billetautomat auto = new Billetautomat();
         Billetvaelger bv = new Billetvaelger(auto);
