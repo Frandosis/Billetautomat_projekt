@@ -31,7 +31,6 @@ public class Checkout {
         for (int i = 0; i < list.size(); i++) {
             Billet b = list.get(i);
             sum += b.getPrice();
-            System.out.println(sum);
         }
         return sum;
        } catch (Exception e){
@@ -69,7 +68,7 @@ public class Checkout {
 
             if (sum < 0) {
                 sum = -1 * sum;
-                System.out.println("Du har betalt for meget så du får nu dine " + sum + "kr tilbage.");
+                System.out.println("You have payed to much, so we return " + sum + "kr.");
                 automat.udbetalingLog(sum);
                 sum = 0;
             }
@@ -140,7 +139,7 @@ public class Checkout {
         System.out.println("# Borgen Trafikselskab #");
         System.out.println("#                      #");
         System.out.printf("#%17s     #\n",x.getTypename());
-        System.out.printf("#%14s        #\n",x.getZonename());
+        System.out.printf("#%16s      #\n",x.getZonename());
         System.out.println("#        " + x.getPrice() + " kr.        #");
         System.out.println("#                      #");
         //ystem.out.println("# Du har " + automat.getBalance() + " kr til gode #");
