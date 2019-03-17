@@ -38,9 +38,7 @@ public class Log {
 
     @Override
     public String toString() {
-        if (ID == 1) {
-            return "hej";
-        }
+
         return "Log{" + "tidspunkt=" + tidspunkt + ", handling=" + handling + ", billettype=" + billettype + ", bel\u00f8b=" + beløb + ", ID=" + ID + '}';
     }
 

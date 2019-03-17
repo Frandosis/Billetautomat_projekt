@@ -48,6 +48,16 @@ public class Billetautomat {
         Hlog.add(L);
     }
 
+    public void zonepriceLog(int beloeb) {
+        Log L = new Log("Ny zone price" + beloeb + " kroner", beloeb, 4);
+        Hlog.add(L);
+    }
+
+    public void setpriceLog(String type, int beloeb) {
+        Log L = new Log("Ny price" + beloeb + " kroner af typen: " + type, beloeb, 5);
+        Hlog.add(L);
+    }
+
     public boolean isAdmin() {
         return isAdmin;
     }
