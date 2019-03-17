@@ -27,7 +27,8 @@ public class Zonetyper {
 
     private int factor;
 
-    public Zonetyper() {
+    public Zonetyper(Billetautomat b) {
+        automat = b;
         factor = 5;
         if (price.isEmpty()) {
             for (int i = 0; i <= 8; i++) {
@@ -38,7 +39,7 @@ public class Zonetyper {
             for (int j = 2; j <= 9; j++) {
                 type.add(j + " zoner");
             }
-            type.add("alle zoner");
+            type.add("all zones");
         }
     }
 
@@ -51,9 +52,10 @@ public class Zonetyper {
     }
 
     public void setZonePrice() {
-        if (automat.isAdmin()) {
+        boolean admin = automat.isAdmin();
+        if (admin == true) {
 
-            System.out.println("Indsæt en ny faktor for zonepriserne.");
+            System.out.println("Input a new price factor for zone tickets:");
             System.out.println("Eks. zone2 = factor * 0 og zone3 = factor * 1");
             int f = key.nextInt();
             if (f >= 0) {
