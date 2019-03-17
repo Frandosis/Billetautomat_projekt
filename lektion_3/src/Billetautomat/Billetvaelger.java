@@ -12,10 +12,11 @@ import java.util.Collections;
 import Billetautomat.*;
 
 public class Billetvaelger {
-
+    Billetautomat automat;
     Scanner s = new Scanner(System.in);
-    Billettype type = new Billettype();
+    Billettype type;
     ArrayList<Billet> liste = new ArrayList<Billet>();
+
     
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
@@ -23,15 +24,16 @@ public class Billetvaelger {
     }
 
 
-    public Billetvaelger() {
-
+    public Billetvaelger(Billetautomat b) {
+        automat = b;
+        type = new Billettype(automat);
     }
 
     public void addBillet(int typeindex, int zoneindex, int amount) {
         // check if index are valid
         if (typeindex < 0 || zoneindex < 0
                 || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
-            System.out.println("Billettype eksisterer ikke");
+            System.out.println("Ticket type doesn't exist.");
             return;
         }
         if (amount < 0) {
@@ -58,13 +60,12 @@ public class Billetvaelger {
 
     public void setPrice(){
         
-        System.out.println("hej");
+        System.out.println(automat.isAdmin());
         type.setPrice();
     }
     
     public void setZonePrice(){
-        
-        System.out.println("hej");
+     
         type.setZonePrice();
     }
     public void removeBillet(int typeindex, int zoneindex, int amount) {
@@ -75,7 +76,7 @@ public class Billetvaelger {
             } else {
                 if (typeindex < 0 || zoneindex < 0
                     || typeindex >= type.sizeOfBilletType() || zoneindex >= type.sizeOfZoneType()) {
-                        System.out.println("Billettype eksisterer ikke");
+                        System.out.println("Ticket type doesn't exist");
                         return;
                     }
                 if (amount > 0) {
@@ -112,14 +113,14 @@ public class Billetvaelger {
             if(l.size() == 1){
                 int amount = l.size();
                 Billet x = l.get(0);
-                System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
+                System.out.println("Ticket type:    Zone amount:     Price:     Amount billetter:");
                 System.out.printf("%13s%15s%11d%22d%n",x.getTypename(),x.getZonename(),x.getPrice(),amount);
                 return;
             }
             
             int sum = 0;
             int amount = 0;
-            System.out.println("Billet type:    Zone amount:     Price:     Amount billetter:");
+            System.out.println("Ticket type:    Zone amount:     Price:     Amount billetter:");
             
             for (int i = 1; i < l.size(); i++) {
                 Billet prev = l.get(i - 1);
@@ -199,10 +200,10 @@ public class Billetvaelger {
             choice = s.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Choose a type of ticket\nVoksen (press 1) - Boerne (press 2) - Cykel (press 3)");
+                    System.out.println("Choose a type of ticket\nAdult (press 1) - Child (press 2) - Bicycle (press 3)");
                     
                     int typeindex = keyboardIntepreter( s.next().charAt(0),true);
-                    System.out.println("choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
+                    System.out.println("Choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
                     
                     int zoneindex = keyboardIntepreter( s.next().charAt(0),false);
                     System.out.println("Choose an amount of tickets");
@@ -219,9 +220,9 @@ public class Billetvaelger {
                     break;
 
                 case 2:
-                    System.out.println("Choose a type of ticket\nVoksen (press 1) - Boerne (press 2) - Cykel (press 3)");
+                    System.out.println("Choose a type of ticket\nAdult (press 1) - Child (press 2) - Bicycle (press 3)");
                     typeindex = keyboardIntepreter( s.next().charAt(0),true);
-                    System.out.println("choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
+                    System.out.println("Choose amount of zones\n2 zones (press 2) up to 9 zones (press 9) or all zones (press a)");
                     zoneindex = keyboardIntepreter( s.next().charAt(0),false);
                     System.out.println("Choose an amount of tickets to be removed");
                     amount = -1;
