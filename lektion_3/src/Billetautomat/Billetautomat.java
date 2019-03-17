@@ -164,23 +164,23 @@ public class Billetautomat {
                             break;
                         case "2":// admin valg
                             System.out.println("Vælg admin handlings log:");
-                            System.out.println("1- ? 2- ? 3-?");
+                            System.out.println("1.Change pass \n2. Change ticket price \n3. Change zone price");
                             String adminh = sc.next();
                             if (adminh == "1") {
                                 for (Log L : Hlog) {
-                                    if (L.getID() != 2) {
+                                    if (L.getID() == 4) {
                                         System.out.println(L.toString());
                                     }
                                 }
                             } else if (adminh == "2") {
                                 for (Log L : Hlog) {
-                                    if (L.getID() != 3) {
+                                    if (L.getID() == 5) {
                                         System.out.println(L.toString());
                                     }
                                 }
                             } else if (adminh == "3") {
                                 for (Log L : Hlog) {
-                                    if (L.getID() != 4) {
+                                    if (L.getID() == 6) {
                                         System.out.println(L.toString());
                                     }
                                 }
