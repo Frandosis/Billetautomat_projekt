@@ -59,7 +59,7 @@ public class Billetvaelger {
 
     public void setPrice(){
         
-        System.out.println(automat.isAdmin());
+        
         type.setPrice();
     }
     
