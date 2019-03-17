@@ -9,18 +9,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Admin {
-   boolean runAd = false;
+   boolean runAd;
    int choice;
+   Billetautomat automat;
    Billetvaelger bilvalg;
    Scanner adminscan = new Scanner(System.in);
    
-   public Admin (Billetvaelger bv){
+   public Admin (Billetvaelger bv, Billetautomat a){
         bilvalg = bv;
+        automat = a;
     }
    
    public void AdminUI(){
-   while(runAd != true){
-       System.out.println("1 to set price\n 2 to set zone price");
+       runAd = false;
+       while(runAd != true){
+       System.out.println("1 to set price\n2 to set zone price\n0 to end Admin");
        choice = adminscan.nextInt();
         
        switch(choice){
@@ -29,6 +32,7 @@ public class Admin {
                break;
             case 2:
                 setZonePrice();
+                break;
             case 0:
                 runAd = true;
                 break;
@@ -37,7 +41,7 @@ public class Admin {
    }
    
     public void setPrice(){
-       
+       System.out.println(automat.isAdmin());
         bilvalg.setPrice();
    
    
