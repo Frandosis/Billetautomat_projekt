@@ -17,11 +17,7 @@ public class Billetvaelger {
     Scanner s = new Scanner(System.in);
     Billettype type;
     ArrayList<Billet> liste = new ArrayList<Billet>();
-    BilletvaelgerBuffer bvb;
     
-    public void setBuffer(BilletvaelgerBuffer bvf){
-        bvb = bvf;
-    }
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
@@ -119,22 +115,28 @@ public class Billetvaelger {
         printBilletList(getAllTypeList());
     }
 
-    public void printBilletList(ArrayList<Billet> l) {
+    public String printBilletList(ArrayList<Billet> l) {
+        String msg;
         if (l.isEmpty()) {
-            System.out.println("Checkout bag is empty");
+            msg = "Checkout bag is empty";
+            System.out.println(msg);
+            return msg;
         } else {
 
             if (l.size() == 1) {
                 int amount = l.size();
                 Billet x = l.get(0);
                 System.out.println("Ticket type:    Zone amount:     Price:     Amount billetter:");
+                msg = "Ticket type:    Zone amount:     Price:     Amount billetter:\n";
+                msg += String.format("%13s%15s%11d%22d%n", x.getTypename(), x.getZonename(), x.getPrice(), amount);
                 System.out.printf("%13s%15s%11d%22d%n", x.getTypename(), x.getZonename(), x.getPrice(), amount);
-                return;
+                return msg;
             }
 
             int sum = 0;
             int amount = 0;
             System.out.println("Ticket type:    Zone amount:     Price:     Amount billetter:");
+            msg = "Ticket type:    Zone amount:     Price:     Amount billetter:\n";
 
             for (int i = 1; i < l.size(); i++) {
                 Billet prev = l.get(i - 1);
@@ -143,6 +145,7 @@ public class Billetvaelger {
                 if (billetEquals(prev, cur) != true) {
                     amount++;
                     System.out.printf("%13s%15s%11d%22d%n", prev.getTypename(), prev.getZonename(), prev.getPrice(), amount);
+                    msg += String.format("%13s%15s%11d%22d%n", prev.getTypename(), prev.getZonename(), prev.getPrice(), amount);
                     sum += prev.getPrice() * amount;
                     amount = 0;
                 } else {
@@ -152,9 +155,12 @@ public class Billetvaelger {
                     amount++;
                     sum += cur.getPrice() * amount;
                     System.out.printf("%13s%15s%11d%22d%n", cur.getTypename(), cur.getZonename(), cur.getPrice(), amount);
+                    msg += String.format("%13s%15s%11d%22d%n", prev.getTypename(), prev.getZonename(), prev.getPrice(), amount);
                 }
             }
             System.out.println("\nTotal sum price = " + sum);
+            msg += "\nTotal sum price = " + sum;
+            return msg;
         }
 
     }

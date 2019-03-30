@@ -10,9 +10,14 @@ package Billetautomat;
  * @author Valdemar Landberg
  */
 public class BilletvaelgerBuffer {
-    public int typeindex;
-    public int zoneindex;
-    public int amount;
+    private int typeindex;
+    private int zoneindex;
+    private int amount;
+    public BilletvaelgerBuffer(){
+        typeindex = 0;
+        zoneindex = 0;
+        amount = 0;
+    }
     
     public void setTypeindex(int ti){
         typeindex = ti;
@@ -24,5 +29,17 @@ public class BilletvaelgerBuffer {
     
     public void setAmount(int a){
         amount = a;
+    }
+    
+    public int getTypeindex(){
+        return typeindex;
+    }
+    
+    public int getZoneindex(){
+        return zoneindex;
+    }
+    
+    public int getAmount(){
+        return amount;
     }
 }
