@@ -12,7 +12,7 @@ import java.util.Collections;
 import Billetautomat.*;
 
 public class Billetvaelger {
-
+    Checkout check;
     Billetautomat automat;
     Scanner s = new Scanner(System.in);
     Billettype type;
@@ -23,8 +23,9 @@ public class Billetvaelger {
 
     }
 
-    public Billetvaelger(Billetautomat b) {
+    public Billetvaelger(Billetautomat b, Checkout c) {
         automat = b;
+        check = c;
         type = new Billettype(automat);
     }
 
