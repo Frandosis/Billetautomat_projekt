@@ -17,7 +17,11 @@ public class Billetvaelger {
     Scanner s = new Scanner(System.in);
     Billettype type;
     ArrayList<Billet> liste = new ArrayList<Billet>();
-
+    BilletvaelgerBuffer bvb;
+    
+    public void setBuffer(BilletvaelgerBuffer bvf){
+        bvb = bvf;
+    }
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
@@ -266,5 +270,6 @@ public class Billetvaelger {
             }
         }
     }
+    
 
 }
