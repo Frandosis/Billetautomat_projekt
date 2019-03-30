@@ -13,12 +13,12 @@ import Billetautomat.*;
 import javax.swing.*;
 
 public class Billetvaelger {
-    
+
     Billetautomat automat;
     Scanner s = new Scanner(System.in);
     Billettype type;
     ArrayList<Billet> liste = new ArrayList<Billet>();
-    
+
     public void sortList(ArrayList<Billet> l) {
         Collections.sort(l, Billet.BilTypeAndZoneComparator);
 
@@ -112,7 +112,7 @@ public class Billetvaelger {
     }
 
     public String printPriceList() {
-    String msg = printBilletList(getAllTypeList());
+        String msg = printBilletList(getAllTypeList());
         return msg;
     }
 
@@ -156,7 +156,7 @@ public class Billetvaelger {
                     amount++;
                     sum += cur.getPrice() * amount;
                     System.out.printf("%13s%15s%11d%22d%n", cur.getTypename(), cur.getZonename(), cur.getPrice(), amount);
-                    msg += String.format("%13s%15s%11d%22d%n", prev.getTypename(), prev.getZonename(), prev.getPrice(), amount);
+                    msg += String.format("%13s%15s%11d%22d%n", cur.getTypename(), cur.getZonename(), cur.getPrice(), amount);
                 }
             }
             System.out.println("\nTotal sum price = " + sum);
@@ -212,11 +212,18 @@ public class Billetvaelger {
     public void clearList() {
         liste.clear();
     }
-    public void billetVaelgerGUI(){
+
+    public void billetVaelgerGUI(Billetvaelger b) {
         JFrame frame = new JFrame("Billetvaelger GUI");
-        BilletvaelgerPanel panel = new BilletvaelgerPanel(this);
-        
+        BilletvaelgerPanel panel = new BilletvaelgerPanel(b, frame);
+        frame.add(panel);                          // vis panelet i vinduet
+
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+        frame.pack();                       // sæt vinduets størrelse
+        frame.setVisible(true);                      // åbn vinduet
+
     }
+
     public void billetVaelgerUI() {
         boolean isDone = false;
         int choice = -1;
@@ -281,6 +288,5 @@ public class Billetvaelger {
             }
         }
     }
-    
 
 }

@@ -116,7 +116,7 @@ public class Checkout {
                         udskrivBilletter();
                         break;
                     case 2:
-                        bilvalg.printBilletList(list);
+                        String no = bilvalg.printBilletList(list); //useless string return.
                         break;
                     case 3:
                         bilvalg.billetVaelgerUI();

@@ -30,7 +30,7 @@ public class BrugerMenu {
             menuPick= scan.nextInt();
             switch(menuPick) {
                 case 1:
-                    bv.billetVaelgerUI();
+                    bv.billetVaelgerGUI(bv);
                     break; 
                 case 2: 
                     c.checkoutUI();
