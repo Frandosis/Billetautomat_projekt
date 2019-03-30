@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
 import Billetautomat.*;
+import javax.swing.*;
 
 public class Billetvaelger {
-    Checkout check;
+    
     Billetautomat automat;
     Scanner s = new Scanner(System.in);
     Billettype type;
@@ -23,9 +24,8 @@ public class Billetvaelger {
 
     }
 
-    public Billetvaelger(Billetautomat b, Checkout c) {
+    public Billetvaelger(Billetautomat b) {
         automat = b;
-        check = c;
         type = new Billettype(automat);
     }
 
@@ -111,8 +111,9 @@ public class Billetvaelger {
         return pricelist;
     }
 
-    public void printPriceList() {
-        printBilletList(getAllTypeList());
+    public String printPriceList() {
+    String msg = printBilletList(getAllTypeList());
+        return msg;
     }
 
     public String printBilletList(ArrayList<Billet> l) {
@@ -211,7 +212,11 @@ public class Billetvaelger {
     public void clearList() {
         liste.clear();
     }
-
+    public void billetVaelgerGUI(){
+        JFrame frame = new JFrame("Billetvaelger GUI");
+        BilletvaelgerPanel panel = new BilletvaelgerPanel(this);
+        
+    }
     public void billetVaelgerUI() {
         boolean isDone = false;
         int choice = -1;
