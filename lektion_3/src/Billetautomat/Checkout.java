@@ -46,7 +46,7 @@ public class Checkout {
         sum = sumList();
         
         
-        while (betalt != true) {
+        
             
             if(sum == -1){
             sum = 0;
@@ -55,14 +55,6 @@ public class Checkout {
             indsatPenge = tastatur.nextInt();
             tastatur.nextLine();
             automat.indkastLog(indsatPenge);
-
-            while (indsatPenge < 0) {
-                System.out.println("You can't use negative money! \nType a positive number.");
-                indsatPenge = tastatur.nextInt();
-                tastatur.nextLine();
-                automat.indkastLog(indsatPenge);
-                
-            }
 
             sum = sum - indsatPenge;
 
@@ -73,11 +65,11 @@ public class Checkout {
                 sum = 0;
             }
             }
-            if (sum == 0) {
+            if (sum = 0) {
                 betalt = true;
             }
             
-        }
+        
 
     }
 
