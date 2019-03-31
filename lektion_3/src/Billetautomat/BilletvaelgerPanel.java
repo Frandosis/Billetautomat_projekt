@@ -12,14 +12,16 @@ import Billetautomat.*;
  */
 public class BilletvaelgerPanel extends javax.swing.JPanel {
     Billetvaelger bv;
+    Checkout chk;
     BilletvaelgerBuffer bvf = new BilletvaelgerBuffer();
     JFrame frame;
     /**
      * Creates new form BilletvaelgerPanel
      */
-    public BilletvaelgerPanel(Billetvaelger bv1, JFrame jf) {
+    public BilletvaelgerPanel(Checkout chk1 , Billetvaelger bv1, JFrame jf) {
         bv = bv1;
         frame = jf;
+        chk = chk1;
         initComponents();
     }
 
@@ -40,7 +42,6 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
         jComboBox8 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -83,13 +84,6 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Go to checkout");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         jButton6.setText("Clear Checkout list");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,9 +100,7 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
                 .addComponent(jButton3)
                 .addGap(150, 150, 150)
                 .addComponent(jButton6)
-                .addGap(150, 150, 150)
-                .addComponent(jButton4)
-                .addGap(38, 38, 38))
+                .addGap(304, 304, 304))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +108,6 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
                     .addComponent(jButton6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -257,12 +248,18 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         frame.dispose();
+        JFrame mainFrame = new JFrame("Main menu");
+        BrugerMenuPanel panel = new BrugerMenuPanel(mainFrame, bv, chk);
+        
+        mainFrame.add(panel);
+        
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+        mainFrame.pack();                       // sæt vinduets størrelse
+        mainFrame.setVisible(true);                      // åbn vinduet
+        
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        jTextArea1.setText("Function comes later");
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -382,7 +379,6 @@ public class BilletvaelgerPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
