@@ -54,8 +54,8 @@ public class Checkout {
         }
             
         if (sum <= indsatPenge) {
-            as = "you have paid enough!";
             betalt = true;
+            as = udskrivBilletter();
             return as;
         }
             as = "-1";
@@ -63,24 +63,24 @@ public class Checkout {
 
     }
 
-    public void udskrivBilletter() {
+    public String udskrivBilletter() {
+        String prnt = "";
         if(betalt == true){
         ArrayList<Billet> billetlist = bilvalg.getTicketList();
 
         for (int i = 0; i < billetlist.size(); i++) {
 
             Billet x = billetlist.get(i);
-            udskrivBillet(x);
+            prnt += udskrivBillet(x);
             automat.udskrivningLog(x.getTypename(), x.getZonename(), x.getPrice());
         }
         bilvalg.clearList();
         betalt = false;
-        return;
+        return prnt;
         } else {
             System.out.println("You haven't payed enough!");
-            betalBillet(indsatPenge);
-            udskrivBilletter();
-            return;
+            
+            return prnt;
         }
             }
 
@@ -94,7 +94,7 @@ public class Checkout {
                 choice = tastatur.nextInt();
                 switch (choice) {
                     case 1:
-                        betalBillet(indsatPenge);
+                        //betalBillet(indsatPenge);
                         udskrivBilletter();
                         break;
                     case 2:
@@ -116,17 +116,18 @@ public class Checkout {
             e.printStackTrace();
         }
     }
-        public void udskrivBillet(Billet x) {
-        System.out.println("##########B##T##########");
-        System.out.println("# Borgen Trafikselskab #");
-        System.out.println("#                      #");
-        System.out.printf("#%17s     #\n",x.getTypename());
-        System.out.printf("#%16s      #\n",x.getZonename());
-        System.out.println("#        " + x.getPrice() + " kr.        #");
-        System.out.println("#                      #");
+        public String udskrivBillet(Billet x) {
+        String prnt;
+        prnt = "##########B##T##########\n";
+        prnt = prnt + "# Borgen Trafikselskab #\n";
+        prnt = prnt +"#                      #\n";
+        prnt = prnt + String.format("#%17s     #\n",x.getTypename());
+        prnt = prnt + String.format("#%16s      #\n",x.getZonename());
+        prnt = prnt +"#        " + x.getPrice() + " kr.        #\n";
+        prnt = prnt +"#                      #\n";
         //ystem.out.println("# Du har " + automat.getBalance() + " kr til gode #");
-        System.out.println("##########B##T##########");
-        System.out.println();
+        prnt = prnt + "##########B##T##########\n\n";
+        return prnt;
     }
         public void udskrivTestBillet(Billet x) {
         System.out.println("##########B##T##########");
