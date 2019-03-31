@@ -15,8 +15,8 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     private int saldo = 0;
     Billetvaelger bv;
-    BilletvaelgerBuffer bvf = new BilletvaelgerBuffer();
     JFrame frame;
+    Checkout chk;
 
     /**
      * Creates new form BilletvaelgerPanel
@@ -24,7 +24,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
     /**
      * Creates new form CheckoutPanel
      */
-    public CheckoutPanel() {
+    public CheckoutPanel(Billetvaelger bv1, Checkout chk1, JFrame jf1) {
+        bv = bv1;
+        chk = chk1;
+        frame = jf1;
         initComponents();
     }
 
@@ -219,7 +222,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        jTextArea1.setText("pay");
+        
+        String msg = chk.betalBillet(saldo);
+        
+        jTextArea1.setText(msg);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
