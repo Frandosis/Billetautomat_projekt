@@ -218,6 +218,14 @@ public class CheckoutPanel extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         frame.dispose();
+        JFrame mainFrame = new JFrame("Main menu");
+        BrugerMenuPanel panel = new BrugerMenuPanel(mainFrame, bv, chk);
+        
+        mainFrame.add(panel);
+        
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk
+        mainFrame.pack();                       // sæt vinduets størrelse
+        mainFrame.setVisible(true);                      // åbn vinduet
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
