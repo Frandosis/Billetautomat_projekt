@@ -94,7 +94,7 @@ public class BrugerMenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         jf.dispose();
         JFrame ticketFrame = new JFrame ("Ticket Selecter");
-        BilletvaelgerPanel panel = new BilletvaelgerPanel(bv, ticketFrame);
+        BilletvaelgerPanel panel = new BilletvaelgerPanel(chk ,bv, ticketFrame);
         
         ticketFrame.add(panel);
         
