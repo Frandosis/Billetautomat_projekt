@@ -13,6 +13,7 @@ import javax.swing.JFrame;
  */
 public class CheckoutPanel extends javax.swing.JPanel {
 
+    private int saldo = 0;
     Billetvaelger bv;
     BilletvaelgerBuffer bvf = new BilletvaelgerBuffer();
     JFrame frame;
@@ -236,28 +237,32 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        bv.removeBillet(bvf.getTypeindex(), bvf.getZoneindex(), bvf.getAmount());
-        jTextArea1.setText(bv.printBilletList(bv.getTicketList()));
+        saldo = +1;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        jTextArea1.setText("Ticket price list:\n" + bv.printPriceList());
+        saldo = +5;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        jTextArea1.setText(bv.printBilletList(bv.getTicketList()));
+        saldo = +10;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        bv.addBillet(bv.getTicketList(), bvf.getTypeindex(), bvf.getZoneindex(), bvf.getAmount());
-        jTextArea1.setText(bv.printBilletList(bv.getTicketList()));
+        saldo = +2;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        saldo = +20;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
