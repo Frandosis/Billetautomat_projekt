@@ -21,12 +21,6 @@ public class CheckoutPanel extends javax.swing.JPanel {
     /**
      * Creates new form BilletvaelgerPanel
      */
-    public Checkoutpanel(Billetvaelger bv1, JFrame jf) {
-        bv = bv1;
-        frame = jf;
-        initComponents();
-    }
-
     /**
      * Creates new form CheckoutPanel
      */
