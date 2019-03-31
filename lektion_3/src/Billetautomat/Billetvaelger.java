@@ -215,7 +215,7 @@ public class Billetvaelger {
 
     public void billetVaelgerGUI(Billetvaelger b) {
         JFrame frame = new JFrame("Billetvaelger GUI");
-        BilletvaelgerPanel panel = new BilletvaelgerPanel(b, frame);
+        //BilletvaelgerPanel panel = new BilletvaelgerPanel(b, frame);
         frame.add(panel);                          // vis panelet i vinduet
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // reagér på luk

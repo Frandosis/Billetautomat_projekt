@@ -107,7 +107,7 @@ public class BrugerMenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         jf.dispose();
         JFrame checkFrame = new JFrame ("Checkout menu");
-        CheckoutPanel panel = new CheckoutPanel();
+        CheckoutPanel panel = new CheckoutPanel(bv, chk, checkFrame);
         
         checkFrame.add(panel);
         
