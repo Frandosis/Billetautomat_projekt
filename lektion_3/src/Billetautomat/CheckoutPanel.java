@@ -224,9 +224,10 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        bv.clearList();
-        jTextArea1.setText(bv.printBilletList(bv.getTicketList()));
-
+        System.out.println("Her er deres penge:");
+        System.out.println(saldo);
+        saldo = 0;
+        jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
