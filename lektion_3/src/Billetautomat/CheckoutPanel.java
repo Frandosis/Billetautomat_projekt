@@ -245,31 +245,31 @@ public class CheckoutPanel extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        saldo = +1;
+        saldo += 1;
         jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        saldo = +5;
+        saldo += 5;
         jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        saldo = +10;
+        saldo += 10;
         jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        saldo = +2;
+        saldo += 2;
         jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        saldo = +20;
+        saldo += 20;
         jTextArea2.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton10ActionPerformed
 
