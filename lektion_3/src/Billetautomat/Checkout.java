@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import Billetautomat.*;
 
+
 public class Checkout {
     
     Billetautomat automat;
@@ -39,37 +40,26 @@ public class Checkout {
        return -1;
     }
 
-    public void betalBillet() {
-        int sum = 0;
-        int indsatPenge;
+    public String betalBillet(int indsatPenge) {
+        int sum;
+        String as;
 
         sum = sumList();
         
         
-        
+        if(indsatPenge < sum){
+            as = "you need to pay more the total was " + sum; 
+            betalt = false;
+            return as;
+        }
             
-            if(sum == -1){
-            sum = 0;
-            }else{
-                System.out.println("You need to pay " + sum + " kr.");
-            indsatPenge = tastatur.nextInt();
-            tastatur.nextLine();
-            automat.indkastLog(indsatPenge);
-
-            sum = sum - indsatPenge;
-
-            if (sum < 0) {
-                sum = -1 * sum;
-                System.out.println("You have payed to much, so we return " + sum + "kr.");
-                automat.udbetalingLog(sum);
-                sum = 0;
-            }
-            }
-            if (sum = 0) {
-                betalt = true;
-            }
-            
-        
+        if (sum <= indsatPenge) {
+            as = "you have paid enough!";
+            betalt = true;
+            return as;
+        }
+            as = "-1";
+        return as; 
 
     }
 
@@ -88,7 +78,7 @@ public class Checkout {
         return;
         } else {
             System.out.println("You haven't payed enough!");
-            betalBillet();
+            betalBillet(indsatPenge);
             udskrivBilletter();
             return;
         }
@@ -104,7 +94,7 @@ public class Checkout {
                 choice = tastatur.nextInt();
                 switch (choice) {
                     case 1:
-                        betalBillet();
+                        betalBillet(indsatPenge);
                         udskrivBilletter();
                         break;
                     case 2:
