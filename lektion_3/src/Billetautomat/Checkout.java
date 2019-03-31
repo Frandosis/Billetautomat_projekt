@@ -79,8 +79,7 @@ public class Checkout {
         return prnt;
         } else {
             System.out.println("You haven't payed enough!");
-            betalBillet(indsatPenge);
-            udskrivBilletter();
+            
             return prnt;
         }
             }
@@ -95,7 +94,7 @@ public class Checkout {
                 choice = tastatur.nextInt();
                 switch (choice) {
                     case 1:
-                        betalBillet(indsatPenge);
+                        //betalBillet(indsatPenge);
                         udskrivBilletter();
                         break;
                     case 2:
@@ -122,8 +121,8 @@ public class Checkout {
         prnt = "##########B##T##########\n";
         prnt = prnt + "# Borgen Trafikselskab #\n";
         prnt = prnt +"#                      #\n";
-        prnt = prnt +"#     " + x.getTypename() + "    #\n";
-        prnt = prnt + "# " + x.getZonename() + "  #\n";
+        prnt = prnt + String.format("#%17s     #\n",x.getTypename());
+        prnt = prnt + String.format("#%16s      #\n",x.getZonename());
         prnt = prnt +"#        " + x.getPrice() + " kr.        #\n";
         prnt = prnt +"#                      #\n";
         //ystem.out.println("# Du har " + automat.getBalance() + " kr til gode #");
